@@ -1539,11 +1539,6 @@
           "color": "var(--color-primary-300)"
         },
         {
-          "name": "Primary (Lighter)",
-          "slug": "primary-lighter",
-          "color": "var(--color-primary-100)"
-        },
-        {
           "name": "Blue (Light)",
           "slug": "blue-light",
           "color": "var(--blue-light)"
