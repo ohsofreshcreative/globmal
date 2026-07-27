@@ -1,0 +1,32 @@
+.b-map {
+	.__content {
+		.__txt {
+			p {
+				margin-bottom: 16px;
+				font-size: 24px;
+
+				@media (max-width: 768px) {
+					font-size: 20px;
+				}
+			}
+
+			p:last-child {
+				margin-bottom: 0 !important;
+			}
+		}
+	}
+
+	.__map iframe {
+		display: block;
+		width: 100% !important;
+		min-height: 490px;
+		height: 100%;
+		border: 0;
+	}
+}
+
+@media (max-width: 768px) {
+	.b-map .__map iframe {
+		min-height: 320px;
+	}
+}

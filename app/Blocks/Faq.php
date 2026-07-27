@@ -39,31 +39,11 @@ class Faq extends Block
 				'multi_expand' => true,
 			])
 			/*--- TAB #1 ---*/
-			->addTab('Elementy', ['placement' => 'top'])
-			->addGroup('g_faq', ['label' => ''])
-			->addImage('image', [
-				'label' => 'Obraz',
-				'return_format' => 'array',
-				'preview_size' => 'thumbnail',
-			])
-			->addText('header', ['label' => 'Nagłówek'])
-			->addWysiwyg('text', [
-				'label' => 'Treść',
-				'tabs' => 'all', // 'visual', 'text', 'all'
-				'toolbar' => 'full', // 'basic', 'full'
-				'media_upload' => true,
-			])
-			->addLink('button', [
-				'label' => 'Przycisk',
-				'return_format' => 'array',
-			])
-			->endGroup()
 
-			/*--- TAB #2 ---*/
 			->addTab('FAQ', ['placement' => 'top'])
 			->addRepeater('r_faq', [
 				'label' => 'FAQ',
-				'layout' => 'table', // 'row', 'block', albo 'table'
+				'layout' => 'block', // 'row', 'block', albo 'table'
 				'min' => 1,
 				'max' => 20,
 				'button_label' => 'Dodaj pytanie'
@@ -77,6 +57,19 @@ class Faq extends Block
 				'toolbar' => 'full',
 				'media_upload' => true,
 			])
+			->addRepeater('files', [
+				'label' => 'Pliki do pobrania',
+				'layout' => 'table',
+				'button_label' => 'Dodaj plik',
+			])
+				->addFile('file', [
+					'label' => 'Plik',
+					'return_format' => 'array',
+				])
+				->addText('file_title', [
+					'label' => 'Nazwa pliku na liście (opcjonalnie)',
+				])
+			->endRepeater()
 			->endRepeater()
 
 			/*--- USTAWIENIA BLOKU ---*/
@@ -133,7 +126,6 @@ class Faq extends Block
 	public function with(): array
 	{
 		$fields = [
-			'g_faq' => get_field('g_faq'),
 			'r_faq' => get_field('r_faq'),
 
 			'section_id' => get_field('section_id'),

@@ -21,12 +21,21 @@ class OLogos extends Options
         $logos
             ->addGroup('g_logos', ['label' => ''])
             ->addText('header', ['label' => 'Tytuł'])
-            ->addGallery('gallery', [
-                'label'        => 'Logotypy',
-                'preview_size' => 'thumbnail',
-                'library'      => 'all',
-                'min'          => 1,
-            ])
+            ->addRepeater('r_logos', [
+				'label' => 'Kafelki',
+				'layout' => 'table', // 'row', 'block', albo 'table'
+				'min' => 1,
+				'button_label' => 'Dodaj kafelek'
+			])
+			->addImage('image', [
+				'label' => 'Obraz',
+				'return_format' => 'array', // lub 'url', lub 'id'
+				'preview_size' => 'thumbnail',
+			])
+			->endRepeater()
+			->addLink('button', [
+				'label' => 'Przycisk',
+			])
             ->endGroup();
 
         return $logos;

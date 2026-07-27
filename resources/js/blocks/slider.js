@@ -1,16 +1,16 @@
 import Swiper from 'swiper';
-import { Pagination, Navigation } from 'swiper/modules';
+import { Navigation, Pagination } from 'swiper/modules';
 
 import 'swiper/css';
-import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
-const initSlider = () => {
-  const sliders = document.querySelectorAll('.slider-standard');
-  if (!sliders.length) return;
+const initSlider = (scope = document) => {
+  const swiperElements = scope.querySelectorAll('.slider-standard:not(.swiper-initialized)');
+  if (!swiperElements.length) return;
 
-  sliders.forEach((slider) => {
-    const progressFill = slider.querySelector('.__progress-fill');
+  swiperElements.forEach((swiperEl) => {
+    const progressFill = swiperEl.querySelector('.__progress-fill');
 
     const fixOffset = (swiper) => {
       const slideW = swiper.slides[0]?.offsetWidth ?? 0;
@@ -24,32 +24,58 @@ const initSlider = () => {
     };
 
     const updateProgress = (swiper) => {
-      if (!progressFill) return;
-      const n = swiper.slides.length;
-      const pct = ((swiper.activeIndex + 1) / n) * 100;
-      progressFill.style.width = pct + '%';
+      if (progressFill) {
+        const pct = swiper.isEnd
+          ? 100
+          : ((swiper.activeIndex + 1) / swiper.slides.length * 100);
+        progressFill.style.width = pct + '%';
+      }
     };
 
-    new Swiper(slider, {
-      modules: [Pagination, Navigation],
+    new Swiper(swiperEl, {
+      modules: [Navigation, Pagination],
+      slidesPerView: 1.15,
+      spaceBetween: 16,
       loop: false,
-      grabCursor: true,
-      slidesPerView: 'auto',
-      spaceBetween: 80,
       navigation: {
-        nextEl: slider.querySelector('.__next'),
-        prevEl: slider.querySelector('.__prev'),
+        nextEl: swiperEl.querySelector('.__next'),
+        prevEl: swiperEl.querySelector('.__prev'),
+      },
+      breakpoints: {
+        768: {
+          slidesPerView: 2.2,
+          spaceBetween: 24,
+        },
+        1024: {
+          slidesPerView: 3.1,
+          spaceBetween: 32,
+        },
       },
       on: {
         init(swiper) {
           fixOffset(swiper);
           updateProgress(swiper);
         },
-        slideChange: updateProgress,
+        slideChange(swiper) {
+          updateProgress(swiper);
+        },
         resize: fixOffset,
       },
     });
   });
 };
 
+// Inicjalizacja na starcie
 initSlider();
+
+// Wsparcie dla edytora ACF
+if (window.acf) {
+  window.acf.addAction('render_block', (el) => {
+    const node = el?.[0] ?? el;
+    if (node) {
+      initSlider(node);
+    }
+  });
+}
+
+export default initSlider;

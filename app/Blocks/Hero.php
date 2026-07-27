@@ -39,10 +39,10 @@ class Hero extends Block
 			/*--- TAB #1 ---*/
 			->addTab('Treść', ['placement' => 'top'])
 			->addGroup('g_hero', ['label' => 'Hero'])
-			->addImage('image', [
-				'label' => 'Obraz',
-				'return_format' => 'array',
-				'preview_size' => 'thumbnail',
+		
+			->addFile('video', [
+				'label' => 'Wideo jako tło ',
+				'return_format' => 'url',
 			])
 			->addText('title', ['label' => 'Tytuł'])
 			->addWysiwyg('text', [

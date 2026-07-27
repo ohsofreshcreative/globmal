@@ -38,6 +38,7 @@ class Tabs extends Block
 			/*--- TAB #1 ---*/
 			->addTab('Treści', ['placement' => 'top'])
 			->addGroup('g_tabs', ['label' => ''])
+			->addText('title', ['label' => 'Tytuł'])
 			->addText('header', ['label' => 'Nagłówek'])
 			->addTextarea('text', [
 				'label' => 'Opis',
@@ -71,8 +72,11 @@ class Tabs extends Block
 			->addText('title', [
 				'label' => 'Nagłówek',
 			])
-			->addTextarea('text', [
-				'label' => 'Opis',
+				->addWysiwyg('text', [
+				'label' => 'Treść',
+				'tabs' => 'all',
+				'toolbar' => 'full',
+				'media_upload' => true,
 			])
 			->endRepeater()
 

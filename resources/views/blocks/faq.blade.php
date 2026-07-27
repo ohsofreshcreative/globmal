@@ -8,34 +8,50 @@
 	$section_class => filled($section_class),
 	$background => filled($background) && $background !== 'none',
 	])>
-
-	<div class="__wrapper c-main grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-20">
-
-		<div class="__content">
-			<h3 data-gsap-element="header" class="">{{ $g_faq['header'] }}</h3>
-			@if (!empty($g_faq['image']))
-			<div data-gsap-element="img" class="__img order1 mt-10">
-				<img class="__img object-cover" src="{{ $g_faq['image']['url'] }}" alt="{{ $g_faq['image']['alt'] ?? '' }}">
-			</div>
-			@endif
-		</div>
+	<div class="__wrapper c-main grid grid-cols-1">
 		<div data-gsap-element="tabs" class="tabs-wrapper flex flex-col mt-4">
 			@foreach ($r_faq as $item)
-			<div class="tabs rounded-2xl bg-white border border-secondary h-max">
-				<input class="tab-check" type="checkbox" name="radio-a" id="check{{ $loop->index }}">
+			<div class="tabs rounded-2xl bg-white border border-[#728CA1] h-max">
+				<input class="tab-check" type="checkbox" name="radio-a" id="check{{ $loop->index }}" {{ $loop->first ? 'checked' : '' }}>
 				<label class="tabs-label flex items-center justify-between" for="check{{ $loop->index }}">
 					<div class="flex items-center gap-4">
-						<p class="!text-lg font-header">{{ $item['title'] }}</p>
+						<p class="text-2xl font-semibold font-header">{{ $item['title'] }}</p>
 					</div>
-					<x-icon.arrow-up class="__arrow text-secondary w-3 h-4" />
+					<x-icon.arrow-up class="__arrow text-black w-3 h-4" />
 				</label>
 				<div class="tabs-content">
 					{!! $item['txt'] !!}
+
+					@if (!empty($item['files']))
+					<div class="files-wrapper flex flex-col gap-6 mt-4 pt-4">
+						@foreach ($item['files'] as $file_item)
+						@if (!empty($file_item['file']))
+						@php
+						$isPdf = str_contains($file_item['file']['mime_type'] ?? '', 'pdf') || str_ends_with(strtolower($file_item['file']['filename'] ?? ''), '.pdf');
+						@endphp
+						<div class="flex flex-col sm:flex-row sm:items-center justify-between rounded-xl gap-4">
+							<div class="flex items-center gap-4 min-w-0 w-full sm:w-auto">
+								<!-- Document Icon -->
+								<div class="flex-shrink-0 w-6 h-auto">
+									<img class="" src="/wp-content/uploads/2026/07/pdf.png" />
+								</div>
+								<!-- tytul pliku -->
+								<span class="text-black text-sm md:text-base font-semibold break-words">
+									{{ $file_item['file_title'] ?: ($file_item['file']['title'] ?: $file_item['file']['filename']) }}
+								</span>
+							</div>
+							<!-- pobierz btn -->
+							<a href="{{ $file_item['file']['url'] }}" download class="w-full sm:w-auto px-8 py-4 border border-[#2281BE] !text-[#2281BE] hover:bg-[#2281BE] hover:!text-white radius transition-colors flex items-center justify-center flex-shrink-0">
+								Pobierz
+							</a>
+						</div>
+						@endif
+						@endforeach
+					</div>
+					@endif
 				</div>
 			</div>
 			@endforeach
 		</div>
-
 	</div>
-
 </section>

@@ -3,64 +3,45 @@
 <section
 	data-gsap-anim="section"
 	@if(!empty($section_id)) id="{{ $section_id }}" @endif
-	@class([ 'b-cta relative -smt' ,
+	@class([ 'b-cta relative -smt pb-12 -spt' ,
 	$sectionClass=> filled($sectionClass),
 	$section_class => filled($section_class),
 	$background => filled($background) && $background !== 'none',
 	])>
-
-	<div class="__wrapper relative overflow-hidden">
-
-		@if (!empty($g_octa['image']['url']))
-		<figure class="absolute inset-0 m-0 z-0">
-			<picture>
-				<img src="{{ $g_octa['image']['url'] }}" alt="" class="w-full h-full object-cover object-right">
-			</picture>
-		</figure>
+	<div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(181deg, #0065A7 -105.34%, #002238 98.92%) "></div>
+	<div class="__wrapper c-main relative overflow-hidden c-main radius py-12 md:py-24 mx-4">
+		<div class="absolute inset-0 z-10 radius" style="background: linear-gradient(90deg,rgba(0, 51, 84, 0.60) 0.01%, rgba(0, 101, 167, 0.60) 99.99%);"></div>
+		@if (!empty($g_octa['image']))
+		<x-picture
+			:image="$g_octa['image']"
+			figure-class="absolute inset-0 m-0 z-0"
+			class="w-full h-full object-cover" />
 		@endif
-
-		<div class="absolute top-0 left-0 bottom-0 z-10 w-full md:w-[75%]" style="border-radius: 0 0 9999px 0; background: linear-gradient(90deg, #2265CB 0%, #181D84 100%);"></div>
-
-		<div class="__inside c-main grid grid-cols-1 md:grid-cols-2 items-center gap-6 relative z-20">
-			<div class="__content w-full py-52">
+		<div class="absolute inset-0 z-1 pointer-events-none" style="background: linear-gradient(90deg, rgba(40, 101, 162, 0.80) 0%, rgba(40, 101, 162, 0.80) 100%);"></div>
+		<div class="__inside  grid grid-cols-1 md:grid-cols-2 items-center gap-6 relative z-20">
+			<div class="__content w-full ">
 				@if (!empty($g_octa['header']))
-				<p data-gsap-element="header" class="block text-h3 text-white !m-header">{{ $g_octa['header'] }}</p>
+				<p data-gsap-element="header" class=" text-h3 text-white m-header">{{ $g_octa['header'] }}</p>
 				@endif
 				@if (!empty($g_octa['txt']))
-				<div data-gsap-element="txt" class="text-white">{!! $g_octa['txt'] !!}</div>
+				<div data-gsap-element="txt" class="text-white mb-4">{!! $g_octa['txt'] !!}</div>
 				@endif
-
-				<div class="inline-buttons m-btn">
-					@if (!empty($g_octa['button1']))
-					<x-button
-						:href="$g_octa['button1']['url']"
-						variant="white"
-						class=""
-						data-gsap-element="btn">
-						{{ $g_octa['button1']['title'] }}
-					</x-button>
-					@endif
-
-					@if (!empty($g_octa['button2']))
-					<x-button
-						:href="$g_octa['button2']['url']"
-						variant="secondary"
-						class=""
-						data-gsap-element="btn">
-						{{ $g_octa['button2']['title'] }}
-					</x-button>
-					@endif
-				</div>
+				@if (!empty($g_octa['phone']))
+				<p data-gsap-element="header" class="_phone text-white mb-4">{{ $g_octa['phone'] }}</p>
+				@endif
+				@if (!empty($g_octa['mail']))
+				<p data-gsap-element="header" class="_mail text-white mb-4">{{ $g_octa['mail'] }}</p>
+				@endif
+				@if (!empty($g_octa['address']))
+				<p data-gsap-element="header" class="_address text-white ">{{ $g_octa['address'] }}</p>
+				@endif
 			</div>
-
 			@if ($form)
-			<div data-gsap-element="form" class="bg-white radius p-10 -mt-20 md:-mt-0 mb-30 md:mb-0">
-				<h4 class="!text-primary mb-4">{!! $g_octa['title'] !!}</h4>
+			<div data-gsap-element="form" class="bg-white radius p-6 md:p-10 mt-6 md:mt-0">
+				<h4 class="text-brand mb-4">{!! $g_octa['title'] !!}</h4>
 				{!! do_shortcode($g_octa['shortcode']) !!}
 			</div>
 			@endif
 		</div>
-
 	</div>
-
 </section>

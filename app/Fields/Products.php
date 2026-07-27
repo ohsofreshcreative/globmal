@@ -9,7 +9,7 @@ class Products extends Field
 {
     public function fields(): array
     {
-        $products = new FieldsBuilder('products');
+        $products = new FieldsBuilder('options_products');
 
         $products
             ->setLocation('options_page', '==', 'products')

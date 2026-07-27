@@ -1,45 +1,35 @@
 .b-contact {
-	.__data {
-		font-size: 16px;
-	}
-
-	.__data a {
-		color: var(--text-s-light);
-	}
-
-	.__data a:hover {
-		color: var(--text-s-lighter);
-	}
-
-	.__phone {
+	._phone,
+	._mail,
+	._address {
 		display: flex;
+		align-items: center;
+
+		&::before {
+			content: '';
+			display: inline-block;
+			width: 44px;
+			height: 44px;
+			flex-shrink: 0;
+			background-color: var(--color-primary);
+			border-radius: 50%;
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: 20px;
+			margin-right: 16px;
+		}
 	}
 
-	.__phone::before {
-		content: url("@images/phone.svg");
-		margin-right: 16px;
-		position: relative;
-		top: 4px;
-		max-width: 40px;
+	._phone::before {
+		background-image: url('/wp-content/uploads/2026/07/phone.svg');
 	}
 
-	.__mail {
-		display: flex;
+	._mail::before {
+		background-image: url('/wp-content/uploads/2026/07/mail.svg');
 	}
 
-	.__mail::before {
-		content: url('@images/mail.svg');
-		margin-right: 16px;
-		position: relative;
-		top: 4px;
-		max-width: 40px;
-	}
-
-	.__address::before {
-		content: url('/wp-content/uploads/2026/01/place.svg');
-		margin-right: 16px;
-		position: relative;
-		top: 4px;
-		max-width: 40px;
+	._address::before {
+		background-image: url('/wp-content/uploads/2026/07/place.svg');
+		background-size: 18px;
 	}
 }

@@ -42,19 +42,24 @@ class Contact extends Block
 			])
 			/*--- TAB #1 ---*/
 			->addTab('Dane', ['placement' => 'top'])
-			->addGroup('g_contact_1', ['label' => ''])
-			->addText('header', ['label' => 'Tytuł'])
-			->addText('phone', [
-				'label' => 'Numer telefonu',
+			->addGroup('g_contact', ['label' => ''])
+			->addImage('image', [
+				'label'         => 'Obraz tła',
+				'return_format' => 'array',
+				'preview_size'  => 'medium',
 			])
-			->addText('mail', [
-				'label' => 'Adres e-mail',
+			->addText('header', ['label' => 'Nagłówek'])
+			->addWysiwyg('txt', [
+				'label'        => 'Treść',
+				'tabs'         => 'visual',
+				'toolbar'      => 'basic',
+				'media_upload' => false,
 			])
-			->addTextarea('address', [
-				'label' => 'Adres',
-				'rows' => 3,
-				'new_lines' => 'br',
-			])
+
+			->addText('phone', ['label' => 'Telefon'])
+			->addText('mail', ['label' => 'Email'])
+			->addText('address', ['label' => 'Adres'])
+
 			->endGroup()
 			/*--- TAB #2 ---*/
 			->addTab('Formularz', ['placement' => 'top'])
@@ -121,9 +126,12 @@ class Contact extends Block
 
 	public function with(): array
 	{
+		$g_contact_2 = get_field('g_contact_2');
+
 		$fields = [
-			'g_contact_1' => get_field('g_contact_1'),
-			'g_contact_2' => get_field('g_contact_2'),
+			'g_contact' => get_field('g_contact'),
+			'g_contact_2' => $g_contact_2,
+			'form' => !empty($g_contact_2['shortcode']),
 
 			'section_id' => get_field('section_id'),
 			'section_class' => get_field('section_class'),

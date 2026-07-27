@@ -1,9 +1,11 @@
 @php
 $categories = get_the_category();
 $category = !empty($categories) ? $categories[0] : null;
+$g_octa = get_field('g_octa', 'option');
 @endphp
 
-<section data-gsap-anim="section" class="hero-blog bg-gradient relative overflow-visible">
+<section data-gsap-anim="section" class="hero-blog relative bg-blue-light overflow-hidden">
+	<div class="absolute -left-66 -top-26 w-[474px] h-[492px] rounded-full bg-primary opacity-70 blur-[111px]"></div>
 	<div class="__wrapper c-main relative z-10 -spt">
 		<div class="__content w-full sm:w-3/4 mx-auto pb-30">
 			<div data-gsap-element="bread" class="__breadcrumb">
@@ -11,163 +13,158 @@ $category = !empty($categories) ? $categories[0] : null;
 				{!! woocommerce_breadcrumb() !!}
 				@endif
 			</div>
-
 			<div class="__top mt-20 text-center">
+				<h1 data-gsap-element="header" class="text-h2 text-white m-header">{{ get_the_title() }}</h1>
 				@if ($category)
-				<a data-gsap-element="header" href="{{ get_category_link($category->term_id) }}" class="bg-primary-lighter hover:bg-primary-light border border-primary-light rounded-full text-sm px-4 py-3">{{ $category->name }}</a>
-				@endif
-				<h1 data-gsap-element="header" class="text-h2 text-white mt-6">{{ get_the_title() }}</h1>
-				@if(has_excerpt())
-				<div data-gsap-element="content" class="text-white mt-4">
-					{!! get_the_excerpt() !!}
-				</div>
+				<a data-gsap-element="header" href="{{ get_category_link($category->term_id) }}" class="bg-[#2052D0] rounded-xs !text-white text-lg px-4 py-3">{{ $category->name }}</a>
 				@endif
 			</div>
 		</div>
 	</div>
-	<img src="/wp-content/uploads/2026/01/blog-leaf.svg" alt="" class="absolute -top-20 -right-20 pointer-events-none">
+	<img class="absolute pointer-events-none w-240 h-auto z-20 top-0 -right-50" src="/wp-content/uploads/2026/07/shape.svg" />
 </section>
 
 <section data-gsap-anim="section">
-	<div id="tresc" class="__entry relative z-10 -mt-16">
-		<div class="c-main">
+	<div id="tresc" class="__entry relative z-10 -smt">
+		<div class="c-small">
 
 			@if(has_post_thumbnail())
-			<div data-gsap-element="image" class="w-full img-2xl rounded-xl overflow-hidden mb-16">
-				{!! get_the_post_thumbnail(get_the_ID(), 'large', ['class' => 'w-full object-cover']) !!}
-			</div>
+				<div data-gsap-element="image" class="w-full img-2xl rounded-xl overflow-hidden mb-8">
+					{!! get_the_post_thumbnail(get_the_ID(), 'large', ['class' => 'w-full object-cover']) !!}
+				</div>
 			@endif
-		</div>
 
+			<div class="flex flex-wrap items-center gap-4 text-[#002238]">
+
+				<div class="shrink-0">
+					{!! get_avatar(get_the_author_meta('ID'), 48, '', get_the_author(), ['class' => 'rounded-full']) !!}
+				</div>
+
+				<div class="font-semibold">
+					{{ get_the_author() }}
+				</div>
+
+				<div class="w-2 h-2 ">
+					<img class="" src="/wp-content/uploads/2026/07/vector.svg" />
+				</div>
+
+				<div>
+					Opublikowano {{ get_the_date('d.m.Y') }}
+				</div>
+
+				<div class="w-2 h-2 ">
+					<img class="" src="/wp-content/uploads/2026/07/vector.svg" />
+				</div>
+				<div>
+@php
+$readingTime = get_field('reading_time');
+@endphp
+
+@if($readingTime && !empty($readingTime['time']))
+    <div>
+        {{ $readingTime['time'] }}
+    </div>
+@endif				</div>
+
+			</div>
+
+		</div>
 	</div>
 </section>
 
+
+
+
 @php
 $content = apply_filters('the_content', get_the_content());
+@endphp
 
-preg_match_all('/<h([1-4])[^>]*>(.*?)<\/h[1-4]>/', $content, $matches, PREG_SET_ORDER);
+<div class="__content c-small __entry -smt">
+	<div id="tresc" class="__entry">
+		{!! $content !!}
+	</div>
+</div>
+@php
+$current_id = get_the_ID();
+$categories = wp_get_post_categories($current_id);
+$related_args = [
+'category__in' => $categories,
+'post__not_in' => [$current_id],
+'posts_per_page' => 3,
+'ignore_sticky_posts' => 1,
+];
+$related_query = new WP_Query($related_args);
+@endphp
 
-		$toc = '<nav class="toc">
-			<ul>';
-				$used_ids = [];
-				foreach ($matches as $match) {
-				$level = $match[1];
-				$title = strip_tags($match[2]);
-				$id = sanitize_title($title);
-				$base_id = $id;
-				$i = 2;
-				while (in_array($id, $used_ids)) {
-				$id = $base_id . '-' . $i;
-				$i++;
-				}
-				$used_ids[] = $id;
-				$content = preg_replace(
-				'/<h' . $level . '[^>]*>' . preg_quote($match[2], '/' ) . '<\/h' . $level . '>/' , '<h' . $level . ' id="' . $id . '">' . $match[2] . '</h' . $level . '>' ,
-					$content,
-					1
-					);
-					$toc .='<li class="toc-h' . $level . '"><a href="#' . $id . '">' . $title . '</a></li>' ;
+<!--- cta -->
+<section
+    data-gsap-anim="section"
+    class="b-cta relative  -spt -smt">
+	<div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(181deg, #0065A7 -105.34%, #002238 98.92%) "></div>
+	<div class="__wrapper relative overflow-hidden c-main radius py-12 md:py-24">
+		<div class="absolute inset-0 z-10 radius" style="background: linear-gradient(90deg,rgba(0, 51, 84, 0.60) 0.01%, rgba(0, 101, 167, 0.60) 99.99%);"></div>
+		@if (!empty($g_octa['image']))
+		<x-picture
+			:image="$g_octa['image']"
+			figure-class="absolute inset-0 m-0 z-0"
+			class="w-full h-full object-cover" />
+		@endif
+		<div class="absolute inset-0 z-1 pointer-events-none" style="background: linear-gradient(90deg, rgba(40, 101, 162, 0.80) 0%, rgba(40, 101, 162, 0.80) 100%);"></div>
+		<div class="__inside  grid grid-cols-1 md:grid-cols-2 items-center gap-6 relative z-20">
+			<div class="__content w-full ">
+				@if (!empty($g_octa['header']))
+				<p data-gsap-element="header" class=" text-h3 text-white m-header">{{ $g_octa['header'] }}</p>
+				@endif
+				@if (!empty($g_octa['txt']))
+				<div data-gsap-element="txt" class="text-white mb-4">{!! $g_octa['txt'] !!}</div>
+				@endif
+				@if (!empty($g_octa['phone']))
+				<p data-gsap-element="header" class="_phone text-white mb-4">{{ $g_octa['phone'] }}</p>
+				@endif
+				@if (!empty($g_octa['mail']))
+				<p data-gsap-element="header" class="_mail text-white mb-4">{{ $g_octa['mail'] }}</p>
+				@endif
+				@if (!empty($g_octa['address']))
+				<p data-gsap-element="header" class="_address text-white">{{ $g_octa['address'] }}</p>
+				@endif
+			</div>
+
+			<div data-gsap-element="form" class="bg-white radius p-6 md:p-10 mt-6 md:mt-0">
+				<h4 class="text-brand mb-4">{!! $g_octa['title'] !!}</h4>
+				{!! do_shortcode($g_octa['shortcode']) !!}
+			</div>
+
+		</div>
+	</div>
+</section>
+
+<script>
+	document.addEventListener('DOMContentLoaded', function() {
+		const headings = document.querySelectorAll('h1[id], h2[id], h3[id], h4[id]'); // Select all headings with IDs
+		const tocLinks = document.querySelectorAll('.toc ul li a'); // Select all links in the TOC
+
+		function updateActiveLink() {
+			headings.forEach((heading) => {
+				const headingTop = heading.getBoundingClientRect().top;
+				const windowHeight = window.innerHeight;
+
+				if (headingTop < windowHeight - 300) {
+					// Remove the 'active' class from all TOC links
+					tocLinks.forEach((link) => {
+						link.parentNode.classList.remove('active');
+					});
+
+					// Add the 'active' class to the corresponding TOC link
+					const id = heading.id;
+					const activeLink = document.querySelector(`.toc ul li a[href="#${id}"]`);
+					if (activeLink) {
+						activeLink.parentNode.classList.add('active');
 					}
-					$toc .='</ul></nav>' ;
-					@endphp
+				}
+			});
+		}
+		updateActiveLink();
 
-					<div class="__content c-main __entry -smt grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-10">
-
-					<div class="relative md:sticky top-0 md:top-30 h-max">
-						<p class="text-h5 m-title">Spis treści</p>
-						@if(count($matches))
-						{!! $toc !!}
-						@endif
-					</div>
-
-					<div id="tresc" class="__entry">
-						{!! $content !!}
-					</div>
-
-					</div>
-
-					@php
-					$current_id = get_the_ID();
-					$categories = wp_get_post_categories($current_id);
-					$related_args = [
-					'category__in' => $categories,
-					'post__not_in' => [$current_id],
-					'posts_per_page' => 3,
-					'ignore_sticky_posts' => 1,
-					];
-					$related_query = new WP_Query($related_args);
-					@endphp
-
-				 @if($related_query->have_posts())
-                    <section class="related-posts c-main border-t border-primary-light -smt pt-20 pb-26">
-                        <h3 class="text-2xl font-bold mb-6">Podobne wpisy</h3>
-                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            @while($related_query->have_posts())
-                            @php($related_query->the_post())
-                            <article @php(post_class('bg-white radius p-6 flex flex-col'))>
-                                <header>
-                                    @if(has_post_thumbnail())
-                                    <a href="{{ get_permalink() }}">
-                                        {!! get_the_post_thumbnail(null, 'large', ['class' => 'featured-image radius object-cover img-xs']) !!}
-                                    </a>
-                                    @endif
-
-                                    @php($post_categories = get_the_category(get_the_ID()))
-                                    @if(!empty($post_categories))
-                                    <div class="flex flex-wrap gap-2 mt-4">
-                                        @foreach($post_categories as $post_category)
-                                        <a href="{{ get_category_link($post_category->term_id) }}" class="bg-primary-lighter hover:bg-primary-light border border-primary-light radius text-xs p-2">{{ $post_category->name }}</a>
-                                        @endforeach
-                                    </div>
-                                    @endif
-
-                                    <h2 class="entry-title text-h6 mt-4">
-                                        <a href="{{ get_permalink() }}">
-                                            {{ get_the_title() }}
-                                        </a>
-                                    </h2>
-
-                                </header>
-
-                                <a class="underline-btn mt-auto pt-4" href="{{ get_permalink() }}">
-                                    Przeczytaj
-                                </a>
-
-                            </article>
-                            @endwhile
-                            @php(wp_reset_postdata())
-                        </div>
-                    </section>
-                    @endif
-
-
-					<script>
-						document.addEventListener('DOMContentLoaded', function() {
-							const headings = document.querySelectorAll('h1[id], h2[id], h3[id], h4[id]'); // Select all headings with IDs
-							const tocLinks = document.querySelectorAll('.toc ul li a'); // Select all links in the TOC
-
-							function updateActiveLink() {
-								headings.forEach((heading) => {
-									const headingTop = heading.getBoundingClientRect().top;
-									const windowHeight = window.innerHeight;
-
-									if (headingTop < windowHeight - 300) {
-										// Remove the 'active' class from all TOC links
-										tocLinks.forEach((link) => {
-											link.parentNode.classList.remove('active');
-										});
-
-										// Add the 'active' class to the corresponding TOC link
-										const id = heading.id;
-										const activeLink = document.querySelector(`.toc ul li a[href="#${id}"]`);
-										if (activeLink) {
-											activeLink.parentNode.classList.add('active');
-										}
-									}
-								});
-							}
-							updateActiveLink();
-
-							window.addEventListener('scroll', updateActiveLink);
-						});
-					</script>
+		window.addEventListener('scroll', updateActiveLink);
+	});
+</script>

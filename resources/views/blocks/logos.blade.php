@@ -3,31 +3,52 @@
 <section
 	data-gsap-anim="section"
 	@if(!empty($section_id)) id="{{ $section_id }}" @endif
-	@class([ 'b-logos relative -smt overflow-hidden' ,
+	@class([ 'b-logos relative -spt -spb overflow-hidden bg-[#E7F1FF]' ,
 	$sectionClass=> filled($sectionClass),
 	$section_class => filled($section_class),
 	$background => filled($background) && $background !== 'none',
 	])>
 
 	@if(!empty($g_logos['header']))
-	<div class="__wrapper c-main relative">
-		<h4 data-gsap-element="header" class="w-full text-primary md:w-1/2 mb-8">{{ $g_logos['header'] }}</h4>
+	<div class="__wrapper c-main relative text-center">
+		<h2 data-gsap-element="header" class="w-full text-brand md:mb-16 mb-8">{{ $g_logos['header'] }}</h2>
 	</div>
 	@endif
 
-	@if (!empty($g_logos['gallery']))
-	<div class="relative w-full overflow-hidden my-6">
+	@if (!empty($g_logos['r_logos']))
+	<div class="relative w-full overflow-hidden c-main">
 
-		<div class="flex w-max items-center animate-infinite-scroll py-2">
+				@if (!empty($g_logos['r_logos']))
+		@php
+		$itemCount = count($g_logos['r_logos']);
+		$gridCols = 1;
+		if ($itemCount == 2) $gridCols = 2;
+		if ($itemCount == 3) $gridCols = 3;
+		if ($itemCount >= 4) $gridCols = 4; // Twój dotychczasowy warunek
+		$gridClass = $gridCols > 1 ? 'grid-cols-1 lg:grid-cols-' . $gridCols : 'grid-cols-1';
+		@endphp
 
-			@for ($copy = 0; $copy < 4; $copy++)
-				@foreach ($g_logos['gallery'] as $image)
-				<div class="bg-white flex items-center justify-center p-4 rounded-[12px] shadow-sm w-48 h-24 shrink-0 mr-8" @if($copy> 0) aria-hidden="true" @endif>
-				<img src="{{ $image['url'] }}" alt="{{ $image['alt'] ?? '' }}" class="max-h-12 w-auto max-w-[80%] object-contain transition-all duration-300">
+		<div class="grid {{ $gridClass }} gap-6 md:gap-8 mt-10">
+			@foreach ($g_logos['r_logos'] as $item)
+			<div data-gsap-element="card" class="__card relative p-8 items-center justify-center flex h-38 md:h-48 w-auto">
+				@if (!empty($item['image']['url']))
+				<img class=" h-full w-full object-contain" src="{{ $item['image']['url'] }}" alt="{{ $item['image']['alt'] ?? '' }}" />
+				@endif
+			</div>
+			@endforeach
 		</div>
-		@endforeach
-		@endfor
-	</div>
+		@endif
+<div class="mt-8  text-center">
+					@if (!empty($g_logos['button']))
+					<x-button
+						:href="$g_logos['button']['url']"
+						variant="primary"
+						class=""
+						data-gsap-element="btn">
+						{{ $g_logos['button']['title'] }}
+					</x-button>
+					@endif
+						</div>
 	</div>
 	@endif
 </section>

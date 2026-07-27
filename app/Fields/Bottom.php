@@ -34,9 +34,16 @@ class Bottom extends Field
 				'return_format' => 'array', // lub 'url', lub 'id'
 				'preview_size' => 'thumbnail',
 			])
-			->addText('txt', ['label' => 'Tekst'])
 			->addText('header', ['label' => 'Nagłówek'])
+			->addWysiwyg('text', [
+				'label' => 'Treść',
+				'tabs' => 'all',
+				'toolbar' => 'full',
+				'media_upload' => true,
+			])
 			->addText('phone', ['label' => 'Telefon'])
+			->addText('mail', ['label' => 'Email'])
+			->addText('address', ['label' => 'Adres'])
 			->addLink('button', [
 				'label' => 'Przycisk #1',
 				'return_format' => 'array',

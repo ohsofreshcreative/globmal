@@ -64,7 +64,7 @@ class Accordion extends Block
 			->addTab('Elementy', ['placement' => 'top'])
 			->addRepeater('r_accordion', [
 				'label' => 'Rozwijane panele',
-				'layout' => 'table',
+				'layout' => 'block',
 				'min' => 1,
 				'button_label' => 'Dodaj panel',
 			])
@@ -77,6 +77,19 @@ class Accordion extends Block
 				'toolbar' => 'full',
 				'media_upload' => true,
 			])
+			->addRepeater('files', [
+				'label' => 'Pliki do pobrania',
+				'layout' => 'table',
+				'button_label' => 'Dodaj plik',
+			])
+				->addFile('file', [
+					'label' => 'Plik',
+					'return_format' => 'array',
+				])
+				->addText('file_title', [
+					'label' => 'Nazwa pliku na liście (opcjonalnie)',
+				])
+			->endRepeater()
 			->endRepeater()
 
 			/*--- USTAWIENIA BLOKU ---*/

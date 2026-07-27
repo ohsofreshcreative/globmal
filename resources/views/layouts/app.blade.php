@@ -36,13 +36,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 		@elseif (function_exists('is_product') && is_product())
 
-		<main id="main" class="main -menu-mt">
+		<main id="main" class="main ">
 			@yield('content')
 		</main>
 
 		@else
 
-		<main id="main" class="main -menu-mt">
+		<main id="main" class="main ">
 			@yield('content')
 		</main>
 

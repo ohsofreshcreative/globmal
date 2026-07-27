@@ -3,15 +3,17 @@ use App\Walkers\DropdownWalker;
 use App\Walkers\MobileDropdownWalker;
 @endphp
 
-<header x-data="{ mobileOpen: false }" class="relative top-0 z-50 bg-white masthead fixed-top">
+<header x-data="{ mobileOpen: false }" class="z-50 masthead fixed-top bg-transparent">
 
 	<!-- Desktop Header -->
-	<div class="items-center justify-between hidden h-full py-4 px-12 mx-auto md:flex">
+	<div class="__desktop-menu items-center justify-between hidden py-3 mx-4 px-12  xl:flex text-white bg-transparent rounded-[40px] border border-white/20 shadow-lg mt-2">
 		<a class="brand shrink-0" href="{{ home_url('/') }}">
-			@if ($logo)
-			<img src="{{ $logo['url'] }}" alt="{{ $logo['alt'] ?? 'Logo' }}" class="w-auto h-12">
+			@if (is_array($logo) && !empty($logo['url']))
+				<img src="{{ $logo['url'] }}" alt="{{ $logo['alt'] ?? ($siteName ?? 'Logo') }}" class="w-auto h-12">
+			@elseif (is_string($logo) && !empty($logo))
+				<img src="{{ $logo }}" alt="{{ $siteName ?? 'Logo' }}" class="w-auto h-12">
 			@else
-			<span class="text-xl font-bold">{{ $siteName }}</span>
+				<span class="text-xl font-bold">{{ $siteName }}</span>
 			@endif
 		</a>
 		@if (has_nav_menu('primary_navigation'))
@@ -28,24 +30,26 @@ use App\Walkers\MobileDropdownWalker;
 
 
 		<div class="">
-			<a href="/kontakt/" class="block w-full btn btn-secondary">
+			<a href="/kontakt/" class="block w-full btn btn-primary">
 				Kontakt
 			</a>
 		</div>
 	</div>
 
 	<!-- Mobile Header Bar -->
-	<div class="flex items-center justify-between p-4 mobile-menu fixed-top md:hidden">
+	<div class="flex items-center justify-between p-4 mobile-menu fixed-top xl:hidden text-white">
 		<a class="brand shrink-0" href="{{ home_url('/') }}">
-			@if ($logo)
-			<img src="{{ $logo['url'] }}" alt="{{ $logo['alt'] ?? 'Logo' }}" class="w-auto h-12">
+			@if (is_array($logo) && !empty($logo['url']))
+				<img src="{{ $logo['url'] }}" alt="{{ $logo['alt'] ?? ($siteName ?? 'Logo') }}" class="w-auto h-12">
+			@elseif (is_string($logo) && !empty($logo))
+				<img src="{{ $logo }}" alt="{{ $siteName ?? 'Logo' }}" class="w-auto h-12">
 			@else
-			<span class="text-lg font-bold">{{ $siteName }}</span>
+				<span class="text-lg font-bold">{{ $siteName }}</span>
 			@endif
 		</a>
 		<button
 			@click.stop="mobileOpen = !mobileOpen"
-			class="p-2 primary bg-white rounded-md"
+			class="p-2 primary bg-transparent rounded-md"
 			aria-expanded="mobileOpen"
 			aria-controls="mobile-menu-panel">
 			<span class="sr-only">Otwórz menu główne</span>
@@ -70,11 +74,21 @@ use App\Walkers\MobileDropdownWalker;
 		x-transition:leave="transition ease-in duration-150"
 		x-transition:leave-start="opacity-100 transform translate-x-0"
 		x-transition:leave-end="opacity-0 transform translate-x-full"
-		class="mobile-menu fixed top-0 right-0 bottom-0 w-full h-full bg-primary shadow-xl z-[51] overflow-y-auto md:hidden"
+		class="mobile-menu fixed top-0 right-0 bottom-0 w-full h-full bg-primary shadow-xl z-[51] overflow-y-auto xl:hidden "
 		aria-label="Menu mobilne">
 		<div class="p-4 relative z-10">
 			<div class="flex items-center justify-between mb-6">
-				<span class=""><a class="brand shrink-0" href="{{ home_url('/') }}"><img src="{{ $logo['url'] }}" alt="{{ $logo['alt'] ?? 'Logo' }}" class="w-auto h-12"></a></span>
+				<span class="">
+					<a class="brand shrink-0" href="{{ home_url('/') }}">
+						@if (is_array($logo) && !empty($logo['url']))
+							<img src="{{ $logo['url'] }}" alt="{{ $logo['alt'] ?? ($siteName ?? 'Logo') }}" class="w-auto h-12">
+						@elseif (is_string($logo) && !empty($logo))
+							<img src="{{ $logo }}" alt="{{ $siteName ?? 'Logo' }}" class="w-auto h-12">
+						@else
+							<span class="text-lg font-bold">{{ $siteName }}</span>
+						@endif
+					</a>
+				</span>
 				<button
 					@click="mobileOpen = false"
 					class="p-2 text-white rounded-md">
@@ -86,10 +100,10 @@ use App\Walkers\MobileDropdownWalker;
 			</div>
 
 			@if (has_nav_menu('primary_navigation'))
-			<nav class="flex flex-col space-y-1 mt-20">
+			<nav class="flex flex-col space-y-1 mt-20 !text-white">
 				{!! wp_nav_menu([
 				'theme_location' => 'primary_navigation',
-				'menu_class' => 'nav-mobile flex flex-col space-y-2',
+				'menu_class' => 'nav-mobile flex flex-col space-y-2 !text-white',
 				'container' => false,
 				'echo' => false,
 				'walker' => new MobileDropdownWalker(),
@@ -98,7 +112,7 @@ use App\Walkers\MobileDropdownWalker;
 			@endif
 
 			<div class="mt-8">
-				<a href="/kontakt/" class="block w-full btn btn-secondary">
+				<a href="/kontakt/" class="block w-full btn btn-primary">
 					Kontakt
 				</a>
 			</div>

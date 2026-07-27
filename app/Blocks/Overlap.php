@@ -42,12 +42,11 @@ class Overlap extends Block
 			/*--- TAB #1 ---*/
 			->addTab('Elementy', ['placement' => 'top'])
 			->addGroup('g_overlap', ['label' => ''])
-
 			->addText('header', ['label' => 'Nagłówek'])
 			->addWysiwyg('text', [
 				'label' => 'Treść',
-				'tabs' => 'all', 
-				'toolbar' => 'full', 
+				'tabs' => 'all',
+				'toolbar' => 'full',
 				'media_upload' => true,
 			])
 			->endGroup()
@@ -60,6 +59,7 @@ class Overlap extends Block
 				'min' => 1,
 				'button_label' => 'Dodaj kafelek'
 			])
+			->addText('number', ['label' => 'Numer'])
 			->addImage('image', [
 				'label' => 'Obraz',
 				'return_format' => 'array', // lub 'url', lub 'id'
