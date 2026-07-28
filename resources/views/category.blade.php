@@ -36,29 +36,25 @@ $unique_id = 'clip_'.uniqid();
 	<img class="absolute pointer-events-none w-240 h-auto z-20 top-0 -right-50" src="/wp-content/uploads/2026/07/shape.svg" />
 </div>
 <section class="-spt">
-<div class="c-main ">
-	<div id="category-tabs" class="category-tabs z-20 relative radius">
-		<!-- Swiper -->
-		<div id="category-tabs" class="category-tabs z-20 relative radius">
-			<!-- Swiper -->
-			<div class="swiper category-swiper lg:flex lg:justify-center">
-				<div class="swiper-wrapper lg:w-fit gap-3">
-					<!-- Slides -->
-					<div class="swiper-slide !w-auto">
-						<a href="/category/aktualnosci-blog" class="__tab block bg-white w-[210px] justify-center flex radius py-4  text-lg {{ is_category('aktualnosci-blog') ? 'active' : '' }}">Wszystkie</a>
-					</div>
-					@foreach($categories as $category)
-					@if($category->name !== 'Aktualności / Blog')
-					<div class="swiper-slide !w-auto">
-						<a href="{{ get_category_link($category->term_id) }}" class="__tab block bg-white radius w-[210px] justify-center flex py-4 text-lg {{ $term && $term->term_id === $category->term_id ? 'active' : 'bg-primary' }}">{{ $category->name }}</a>
-					</div>
-					@endif
-					@endforeach
-				</div>
-			</div>
-
-		</div>
-	</div>
+<div class="c-main relative z-20"> 
+    <div id="category-tabs" class="category-tabs radius">
+        <!-- Swiper -->
+        <div class="swiper category-swiper lg:flex lg:justify-center !overflow-visible">
+            <div class="swiper-wrapper lg:w-fit gap-3">
+                <!-- Slides -->
+                <div class="swiper-slide !w-auto">
+                    <a href="/category/aktualnosci-blog" class="__tab block bg-white w-[210px] justify-center flex radius py-4 text-lg {{ is_category('aktualnosci-blog') ? 'active' : '' }}">Wszystkie</a>
+                </div>
+                @foreach($categories as $category)
+                    @if($category->name !== 'Aktualności / Blog')
+                    <div class="swiper-slide !w-auto">
+                        <a href="{{ get_category_link($category->term_id) }}" class="__tab block bg-white radius w-[210px] justify-center flex py-4 text-lg {{ $term && $term->term_id === $category->term_id ? 'active' : 'bg-primary' }}">{{ $category->name }}</a>
+                    </div>
+                    @endif
+                @endforeach
+            </div>
+        </div>
+    </div>
 </div>
 
 @if (have_posts())

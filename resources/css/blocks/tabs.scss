@@ -44,5 +44,14 @@ strong{
 			}
 		}
 	}
+	.tabs-swiper {
+    .swiper-wrapper {
+        align-items: center;
+    }
+
+    .swiper-slide {
+        width: auto !important;
+    }
+}
 
 }

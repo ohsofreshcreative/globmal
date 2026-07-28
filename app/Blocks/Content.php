@@ -46,7 +46,7 @@ public $supports = [
 				'return_format' => 'array',
 				'preview_size' => 'thumbnail',
 			])
-			->addText('subtitle', ['label' => 'Subtytuł'])
+			->addText('title', ['label' => 'Tytuł'])
 			->addText('header', ['label' => 'Nagłówek'])
 			->addWysiwyg('text', [
 				'label' => 'Treść',

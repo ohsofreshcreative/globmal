@@ -17,9 +17,9 @@
 			</div>
 			@endif
 			<div class="__content order2 relative z-10">
-				@if (!empty($g_content['subtitle']))
-				<div data-gsap-element="txt" class="mt-4 text-primary">
-					{!! $g_content['subtitle'] !!}
+				@if (!empty($g_content['title']))
+				<div data-gsap-element="txt" class="mt-4 title">
+					{!! $g_content['title'] !!}
 				</div>
 				@endif
 				<h2 data-gsap-element="header" class="text-brand text-h3 m-header">{{ $g_content['header'] }}</h2>

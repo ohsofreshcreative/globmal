@@ -1,10 +1,6 @@
 {
-  "_pagination-D8gyGEei.css": {
-    "file": "assets/pagination-D8gyGEei.css",
-    "src": "_pagination-D8gyGEei.css"
-  },
-  "_pagination-YIrCRja3.js": {
-    "file": "assets/pagination-YIrCRja3.js",
+  "_pagination-Bc49be9h.js": {
+    "file": "assets/pagination-Bc49be9h.js",
     "name": "pagination",
     "imports": [
       "resources/js/app.js"
@@ -13,12 +9,16 @@
       "assets/pagination-D8gyGEei.css"
     ]
   },
+  "_pagination-D8gyGEei.css": {
+    "file": "assets/pagination-D8gyGEei.css",
+    "src": "_pagination-D8gyGEei.css"
+  },
   "editor.deps.json": {
     "file": "assets/editor.deps-DxpY22xl.json",
     "src": "editor.deps.json"
   },
   "resources/css/app.css": {
-    "file": "assets/app-B5HvR13Q.css",
+    "file": "assets/app-Dau8TSUy.css",
     "name": "app",
     "names": [
       "app.css"
@@ -43,7 +43,7 @@
     "src": "resources/images/pointer.svg"
   },
   "resources/js/app.js": {
-    "file": "assets/app-eN4ZYR-c.js",
+    "file": "assets/app-sVlN0D8R.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
@@ -64,30 +64,33 @@
     "isDynamicEntry": true
   },
   "resources/js/blocks/reviews.js": {
-    "file": "assets/reviews-DNYlfBDI.js",
+    "file": "assets/reviews-Bt_X1lY6.js",
     "name": "reviews",
     "src": "resources/js/blocks/reviews.js",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_pagination-YIrCRja3.js"
+      "_pagination-Bc49be9h.js"
     ]
   },
   "resources/js/blocks/slider.js": {
-    "file": "assets/slider-ThHTflxD.js",
+    "file": "assets/slider-CdqQ_dKX.js",
     "name": "slider",
     "src": "resources/js/blocks/slider.js",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_pagination-YIrCRja3.js"
+      "_pagination-Bc49be9h.js"
     ]
   },
   "resources/js/blocks/tabs.js": {
-    "file": "assets/tabs-Conl09YH.js",
+    "file": "assets/tabs-CueAxS2o.js",
     "name": "tabs",
     "src": "resources/js/blocks/tabs.js",
-    "isDynamicEntry": true
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js"
+    ]
   },
   "resources/js/editor.js": {
     "file": "assets/editor-Dqo-zVGR.js",

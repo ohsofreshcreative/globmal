@@ -83,3 +83,30 @@ document.querySelectorAll('section.b-products').forEach(function (root) {
     });
   });
 });
+import Swiper from 'swiper';
+import 'swiper/css';
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.tabs-swiper').forEach((slider) => {
+    let swiper = null;
+
+    const initSwiper = () => {
+      if (window.innerWidth < 1400 && !swiper) {
+        swiper = new Swiper(slider, {
+          slidesPerView: 'auto',
+          spaceBetween: 16,
+          freeMode: true,
+          grabCursor: true,
+        });
+      }
+
+      if (window.innerWidth >= 1400 && swiper) {
+        swiper.destroy(true, true);
+        swiper = null;
+      }
+    };
+
+    initSwiper();
+    window.addEventListener('resize', initSwiper);
+  });
+});
