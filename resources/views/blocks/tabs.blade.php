@@ -28,7 +28,7 @@ $grouped_tabs[$tabName][] = $item;
         @if (!empty($g_tabs['title']))
         <div class="title !text-secondary" data-gsap-element="title">{{ $g_tabs['title'] }}</div>
         @endif
-<div class="mb-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+<div class="mb-10 flex grid grid-cols-1 md:grid-cols-2 items-start md:items-center gap-6">
     <h2 class="text-brand text-h3">
         {{ $g_tabs['header'] }}
     </h2>
