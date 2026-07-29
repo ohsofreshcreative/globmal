@@ -96,5 +96,5 @@ $grouped_tabs[$tabName][] = $item;
 		@endif
 	</div>
 
-				<img class="absolute z-0 hidden xl:block pointer-events-none w-220 xl:w-280 h-auto  -top-42 -right-200 " src="/wp-content/uploads/2026/07/circle-mask.svg" />
+				<img class="absolute z-0 hidden xl:block pointer-events-none w-220 xl:w-280 h-auto  -top-42 -right-210 " src="/wp-content/uploads/2026/07/circle-mask.svg" />
 </section>
