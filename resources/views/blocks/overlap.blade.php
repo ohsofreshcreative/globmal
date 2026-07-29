@@ -3,7 +3,7 @@
 <section
 	data-gsap-anim="section"
 	@if(!empty($section_id)) id="{{ $section_id }}" @endif
-	@class([ 'b-overlap relative -smt',
+	@class([ 'b-overlap relative -smt' ,
 	$sectionClass=> filled($sectionClass),
 	$section_class => filled($section_class),
 	$background => filled($background) && $background !== 'none',
@@ -20,16 +20,15 @@
 				@foreach ($r_overlap as $item)
 				<div class="gsap__cards __cards sticky top-20 mt-4">
 					<div data-gsap-element="card" class="gsap__card __card p-8 radius" style="background-image:url({{ $item['image']['url'] }}); background-size: cover; background-position: center;">
-
-    <div class="absolute inset-0 z-10 bg-primary/70 radius"></div>
-						<div class="__box relative z-12 text-white w-full  md:mt-80 mt-20 mb-8 md:mb-20 mx-8 md:mx-20 flex flex-col justify-between h-full">
-						@if (!empty($item['number']))
+						<div class="absolute inset-0 z-10 bg-primary/70 radius"></div>
+						<div class="__box relative z-12 text-white w-full my-8 md:my-20  md:px-20  flex flex-col justify-between h-full md:gap-40 gap-14">
+							@if (!empty($item['number']))
 							<p class="text-h4 font-semibold">{{ $item['number'] }}</p>
 							@endif
-							<div>
-							<p class="text-h5 ">{{ $item['header'] }}</p>
-							<div class="text-lg">{!! $item['text'] !!}</div>
-						</div>
+							<div class="flex flex-col gap-4">
+								<p class="text-h5">{{ $item['header'] }}</p>
+								<div class="text-lg">{!! $item['text'] !!}</div>
+							</div>
 						</div>
 					</div>
 				</div>

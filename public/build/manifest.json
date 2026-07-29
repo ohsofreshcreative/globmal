@@ -3,8 +3,8 @@
     "file": "assets/pagination-D8gyGEei.css",
     "src": "_pagination-D8gyGEei.css"
   },
-  "_pagination-OGxh-sgZ.js": {
-    "file": "assets/pagination-OGxh-sgZ.js",
+  "_pagination-DqqV8Ont.js": {
+    "file": "assets/pagination-DqqV8Ont.js",
     "name": "pagination",
     "imports": [
       "resources/js/app.js"
@@ -18,7 +18,7 @@
     "src": "editor.deps.json"
   },
   "resources/css/app.css": {
-    "file": "assets/app-8iL4D6ks.css",
+    "file": "assets/app-D55-St8h.css",
     "name": "app",
     "names": [
       "app.css"
@@ -30,7 +30,7 @@
     ]
   },
   "resources/css/editor.css": {
-    "file": "assets/editor-DplKAfsr.css",
+    "file": "assets/editor-BLsdZmzH.css",
     "name": "editor",
     "names": [
       "editor.css"
@@ -43,7 +43,7 @@
     "src": "resources/images/pointer.svg"
   },
   "resources/js/app.js": {
-    "file": "assets/app-I9WNWCIo.js",
+    "file": "assets/app-C2vsQxzv.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
@@ -58,7 +58,7 @@
     ]
   },
   "resources/js/blocks/products.js": {
-    "file": "assets/products-Dq4Q2bn-.js",
+    "file": "assets/products-BTrA_vq9.js",
     "name": "products",
     "src": "resources/js/blocks/products.js",
     "isDynamicEntry": true,
@@ -67,27 +67,27 @@
     ]
   },
   "resources/js/blocks/reviews.js": {
-    "file": "assets/reviews-Oj5kA5t2.js",
+    "file": "assets/reviews-DC7lN-WH.js",
     "name": "reviews",
     "src": "resources/js/blocks/reviews.js",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_pagination-OGxh-sgZ.js"
+      "_pagination-DqqV8Ont.js"
     ]
   },
   "resources/js/blocks/slider.js": {
-    "file": "assets/slider-Cp8w3bKJ.js",
+    "file": "assets/slider-C975A1lv.js",
     "name": "slider",
     "src": "resources/js/blocks/slider.js",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_pagination-OGxh-sgZ.js"
+      "_pagination-DqqV8Ont.js"
     ]
   },
   "resources/js/blocks/tabs.js": {
-    "file": "assets/tabs-CetPVEhL.js",
+    "file": "assets/tabs-M2992PYF.js",
     "name": "tabs",
     "src": "resources/js/blocks/tabs.js",
     "isDynamicEntry": true,
