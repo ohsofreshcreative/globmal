@@ -37,21 +37,30 @@ $is_admin = is_admin();
 
 		@if(!empty($grouped_products))
 		<div x-data="{ activeTab: 'all' }" class="mt-12">
-			<div class="flex justify-center flex-wrap gap-4 mb-10">
-				<button
-					@click="activeTab = 'all'"
-					:class="{ 'bg-third text-white': activeTab === 'all', 'bg-white shadow-md text-black hover:bg-gray-100': activeTab !== 'all' }"
-					class="text-h6 whitespace-nowrap py-4 px-6 min-w-[260px] md:min-w-[320px] flex justify-center items-center radius transition-colors duration-200 focus:outline-none cursor-pointer">
-					Wszystkie
-				</button>
-				@foreach ($grouped_products as $name => $items)
-				<button
-					@click="activeTab = '{{ esc_attr($name) }}'"
-					:class="{ 'bg-third text-white': activeTab === '{{ esc_attr($name) }}', 'bg-white shadow-md text-black hover:bg-gray-100': activeTab !== '{{ esc_attr($name) }}' }"
-					class="text-h6 whitespace-nowrap py-4 px-6 min-w-[260px] md:min-w-[320px] flex justify-center items-center radius transition-colors duration-200 focus:outline-none cursor-pointer">
-					{{ $name }}
-				</button>
-				@endforeach
+			<div class="products-swiper swiper mb-10">
+				<div class="swiper-wrapper">
+
+					<div class="swiper-slide">
+						<button
+							@click="activeTab = 'all'"
+							:class="{ 'bg-third text-white': activeTab === 'all', 'bg-white shadow-md text-black hover:bg-gray-100': activeTab !== 'all' }"
+							class=" font-semibold whitespace-nowrap py-3 px-6  flex justify-center items-center radius transition-colors duration-200 focus:outline-none cursor-pointer">
+							Wszystkie
+						</button>
+					</div>
+
+					@foreach ($grouped_products as $name => $items)
+					<div class="swiper-slide">
+						<button
+							@click="activeTab = '{{ esc_attr($name) }}'"
+							:class="{ 'bg-third text-white': activeTab === '{{ esc_attr($name) }}', 'bg-white shadow-md text-black hover:bg-gray-100': activeTab !== '{{ esc_attr($name) }}' }"
+							class=" font-semibold whitespace-nowrap py-3 px-6  flex justify-center items-center radius transition-colors duration-200 focus:outline-none cursor-pointer">
+							{{ $name }}
+						</button>
+					</div>
+					@endforeach
+
+				</div>
 			</div>
 
 			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">

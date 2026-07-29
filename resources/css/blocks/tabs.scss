@@ -2,21 +2,24 @@
 	.__txt {
 		p {
 			margin-bottom: 16px;
+
+			&:last-child {
+				margin-bottom: 0 !important;
+			}
 		}
 
-		p:last-child {
-			margin-bottom: 0 !important;
+		strong {
+			font-size: 24px;
+			color: #000;
+			@media (max-width: 768px) {
+				font-size: 18px;
+			}
 		}
-strong{
-	font-size: 24px;
-	color: #000;
 
-}
 		ul {
-			margin-top: 24px;
-			margin-bottom: 24px;
-			list-style: none;
+			margin: 24px 0;
 			padding-left: 0;
+			list-style: none;
 
 			&:last-child {
 				margin-bottom: 0;
@@ -24,34 +27,37 @@ strong{
 
 			li {
 				position: relative;
-				font-size: 20px;
-				margin-bottom: 0.5em;
 				display: flex;
-				gap: 8px;
 				align-items: center;
+				gap: 8px;
+				margin-bottom: 0.5em;
+				font-size: 20px;
 
 				&::before {
 					content: url('/wp-content/uploads/2026/07/vector.svg');
 					position: relative;
-					left: 0;
 					top: -6px;
 					width: 14px;
 					height: 14px;
-					background-size: contain;
 					background-repeat: no-repeat;
 					background-position: center;
+					background-size: contain;
 				}
 			}
 		}
 	}
+
 	.tabs-swiper {
-    .swiper-wrapper {
-        align-items: center;
-    }
+		overflow: visible !important;
 
-    .swiper-slide {
-        width: auto !important;
-    }
-}
+		.swiper-wrapper {
+			overflow: visible !important;
+			align-items: center;
+		}
 
+		.swiper-slide {
+			width: auto !important;
+			overflow: visible !important;
+		}
+	}
 }

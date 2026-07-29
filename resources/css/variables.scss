@@ -113,11 +113,11 @@ body {
 	--img-3xl: 664px;
 
 	--section-gap: 40px;
-	--m-title: 16px;
+	--m-title: 24px;
 	--m-header: 32px;
 	--m-btn: 32px;
 	--m-img: 40px;
-	--radius: 24px;
+	--radius: 16px;
 
 	--btns-fontsize: 16px;
 	--btns-radius: 16px;
@@ -269,7 +269,10 @@ body {
 		color: var(--s-400) !important;
 	}
 }
-
+.section-blue {
+	background: var(--color-background-blue-light);
+	padding: var(--smt) 0;
+}
 .section-brand {
 	background: var(--color-background-brand);
 	padding: var(--smt) 0;
@@ -360,11 +363,14 @@ body {
 		background: var(--color-secondary-hover);
 	}
 }
-
+.section-soft {
+	background: var(--color-soft);
+	padding: var(--smt) 0;
+}
 .section-dark {
 	background: var(--color-blue-light);
 	padding: var(--smt) 0;
-
+/*--- 
 	h1,
 	.text-h1,
 	h2,
@@ -391,6 +397,7 @@ body {
 	a:hover {
 		color: var(--color-primary-300);
 	}
+	---*/
 }
 
 .m-title {

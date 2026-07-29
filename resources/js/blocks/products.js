@@ -83,3 +83,17 @@ document.querySelectorAll('section.b-products').forEach(function (root) {
     });
   });
 });
+
+import Swiper from 'swiper';
+import 'swiper/css';
+
+['.tabs-swiper', '.products-swiper'].forEach((selector) => {
+    document.querySelectorAll(selector).forEach((slider) => {
+        new Swiper(slider, {
+            slidesPerView: 'auto',
+            spaceBetween: 14,
+            freeMode: true,
+            grabCursor: true,
+        });
+    });
+});

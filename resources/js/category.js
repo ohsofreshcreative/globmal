@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (window.innerWidth < 1400 && !swiper) {
       swiper = new Swiper(slider, {
         slidesPerView: 'auto',
-        spaceBetween: 16,
+        spaceBetween: 10,
         freeMode: true,
         grabCursor: true,
       });

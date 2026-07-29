@@ -80,6 +80,7 @@ class Logos extends Block
                     'section-brand' => 'Marki',
                     'section-gradient' => 'Gradient',
                     'section-dark' => 'Ciemne',
+					'section-soft' => 'Jasnonie niebieskie',
                 ],
                 'default_value' => 'none',
                 'ui' => 0,

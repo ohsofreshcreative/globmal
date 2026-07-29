@@ -20,7 +20,8 @@ class OLogos extends Options
 
         $logos
             ->addGroup('g_logos', ['label' => ''])
-            ->addText('header', ['label' => 'Tytuł'])
+			->addText('title', ['label' => 'Tytuł'])
+            ->addText('header', ['label' => 'Nagłówek'])
             ->addRepeater('r_logos', [
 				'label' => 'Kafelki',
 				'layout' => 'table', // 'row', 'block', albo 'table'

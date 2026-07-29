@@ -7,13 +7,13 @@ $g_octa = get_field('g_octa', 'option');
 <section data-gsap-anim="section" class="hero-blog relative bg-blue-light overflow-hidden">
 	<div class="absolute -left-66 -top-26 w-[474px] h-[492px] rounded-full bg-primary opacity-70 blur-[111px]"></div>
 	<div class="__wrapper c-main relative z-10 -spt">
-		<div class="__content w-full sm:w-3/4 mx-auto pb-30">
-			<div data-gsap-element="bread" class="__breadcrumb">
-				@if (function_exists('woocommerce_breadcrumb'))
-				{!! woocommerce_breadcrumb() !!}
-				@endif
-			</div>
-			<div class="__top mt-20 text-center">
+		<div class="__content w-full mx-auto pb-30">
+			<div class="__top mt-16 text-center">
+				<div data-gsap-element="bread" class="__breadcrumb flex justify-center mb-12">
+					@if (function_exists('yoast_breadcrumb'))
+					{!! yoast_breadcrumb('<p id="breadcrumbs">','</p>') !!}
+					@endif
+				</div>
 				<h1 data-gsap-element="header" class="text-h2 text-white m-header">{{ get_the_title() }}</h1>
 				@if ($category)
 				<a data-gsap-element="header" href="{{ get_category_link($category->term_id) }}" class="bg-[#2052D0] rounded-xs !text-white text-lg px-4 py-3">{{ $category->name }}</a>
@@ -29,57 +29,48 @@ $g_octa = get_field('g_octa', 'option');
 		<div class="c-small">
 
 			@if(has_post_thumbnail())
-				<div data-gsap-element="image" class="w-full img-2xl rounded-xl overflow-hidden mb-8">
-					{!! get_the_post_thumbnail(get_the_ID(), 'large', ['class' => 'w-full object-cover']) !!}
-				</div>
+			<div data-gsap-element="image" class="w-full img-2xl rounded-xl overflow-hidden mb-8">
+				{!! get_the_post_thumbnail(get_the_ID(), 'large', ['class' => 'w-full object-cover']) !!}
+			</div>
 			@endif
 
-			<div class="flex flex-wrap items-center gap-4 text-[#002238]">
-
-				<div class="shrink-0">
-					{!! get_avatar(get_the_author_meta('ID'), 48, '', get_the_author(), ['class' => 'rounded-full']) !!}
+			<div class="flex flex-col md:flex-row md:items-center gap-2 md:gap-4 text-[#002238]">
+				<div class="flex items-center gap-3">
+					<div class="shrink-0">
+						{!! get_avatar(get_the_author_meta('ID'), 48, '', get_the_author(), ['class' => 'rounded-full w-8 h-8 md:w-12 md:h-12']) !!}
+					</div>
+					<div class="font-semibold">
+						{{ get_the_author() }}
+					</div>
 				</div>
-
-				<div class="font-semibold">
-					{{ get_the_author() }}
+				<div class="hidden md:block w-2 h-2 shrink-0">
+					<img src="/wp-content/uploads/2026/07/vector.svg" alt="" />
 				</div>
-
-				<div class="w-2 h-2 ">
-					<img class="" src="/wp-content/uploads/2026/07/vector.svg" />
+				<div class="flex items-center gap-2 text-sm md:text-base">
+					<div>
+						Opublikowano {{ get_the_date('d.m.Y') }}
+					</div>
+					@php
+					$readingTime = get_field('reading_time');
+					@endphp
+					@if($readingTime && !empty($readingTime['time']))
+					<div class="w-2 h-2 shrink-0">
+						<img src="/wp-content/uploads/2026/07/vector.svg" alt="" />
+					</div>
+					<div>
+						{{ $readingTime['time'] }}
+					</div>
+					@endif
 				</div>
-
-				<div>
-					Opublikowano {{ get_the_date('d.m.Y') }}
-				</div>
-
-				<div class="w-2 h-2 ">
-					<img class="" src="/wp-content/uploads/2026/07/vector.svg" />
-				</div>
-				<div>
-@php
-$readingTime = get_field('reading_time');
-@endphp
-
-@if($readingTime && !empty($readingTime['time']))
-    <div>
-        {{ $readingTime['time'] }}
-    </div>
-@endif				</div>
-
 			</div>
-
 		</div>
 	</div>
 </section>
-
-
-
-
 @php
 $content = apply_filters('the_content', get_the_content());
 @endphp
 
-<div class="__content c-small __entry -smt">
+<div class="__content c-small __entry md:pt-18 pt-10">
 	<div id="tresc" class="__entry">
 		{!! $content !!}
 	</div>
@@ -98,8 +89,8 @@ $related_query = new WP_Query($related_args);
 
 <!--- cta -->
 <section
-    data-gsap-anim="section"
-    class="b-cta relative  -spt -smt">
+	data-gsap-anim="section"
+	class="b-cta relative  -spt -smt">
 	<div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(181deg, #0065A7 -105.34%, #002238 98.92%) "></div>
 	<div class="__wrapper relative overflow-hidden c-main radius py-12 md:py-24">
 		<div class="absolute inset-0 z-10 radius" style="background: linear-gradient(90deg,rgba(0, 51, 84, 0.60) 0.01%, rgba(0, 101, 167, 0.60) 99.99%);"></div>

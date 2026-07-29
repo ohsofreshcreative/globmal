@@ -3,7 +3,7 @@
 	<div class="__content relative bg-white radius p-6">
 
 		@if (has_post_thumbnail())
-		<a href="{{ get_permalink() }}" class="block radius overflow-hidden">
+		<a href="{{ get_permalink() }}" class="block rounded-lg overflow-hidden">
 			<img src="{{ get_the_post_thumbnail_url(null, 'large') }}" alt="{{ get_the_title() }}" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-103">
 		</a>
 		@endif

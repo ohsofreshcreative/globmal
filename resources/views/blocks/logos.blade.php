@@ -3,22 +3,28 @@
 <section
 	data-gsap-anim="section"
 	@if(!empty($section_id)) id="{{ $section_id }}" @endif
-	@class([ 'b-logos relative -spt -spb overflow-hidden bg-[#E7F1FF]' ,
+	@class([ 'b-logos relative  overflow-hidden' ,
 	$sectionClass=> filled($sectionClass),
 	$section_class => filled($section_class),
 	$background => filled($background) && $background !== 'none',
 	])>
+	<div class="absolute blur"></div>
 
-	@if(!empty($g_logos['header']))
 	<div class="__wrapper c-main relative text-center">
-		<h2 data-gsap-element="header" class="w-full text-brand md:mb-16 mb-8">{{ $g_logos['header'] }}</h2>
+		@if(!empty($g_logos['title']) && is_page('o-nas'))
+		<div data-gsap-element="txt" class="text-[#AACCE2] text-lg font-semibold m-title">
+			{!! $g_logos['title'] !!}
+		</div>
+		@endif
+		@if(!empty($g_logos['header']))
+		<h2 data-gsap-element="header" class="w-full text-brand md:mb-16 mb-6 text-h4">{{ $g_logos['header'] }}</h2>
 	</div>
 	@endif
 
 	@if (!empty($g_logos['r_logos']))
 	<div class="relative w-full overflow-hidden c-main">
 
-				@if (!empty($g_logos['r_logos']))
+		@if (!empty($g_logos['r_logos']))
 		@php
 		$itemCount = count($g_logos['r_logos']);
 		$gridCols = 1;
@@ -38,17 +44,17 @@
 			@endforeach
 		</div>
 		@endif
-<div class="mt-8  text-center">
-					@if (!empty($g_logos['button']))
-					<x-button
-						:href="$g_logos['button']['url']"
-						variant="primary"
-						class=""
-						data-gsap-element="btn">
-						{{ $g_logos['button']['title'] }}
-					</x-button>
-					@endif
-						</div>
+		<div class="mt-8  text-center">
+			@if (!empty($g_logos['button']))
+			<x-button
+				:href="$g_logos['button']['url']"
+				variant="primary"
+				class=""
+				data-gsap-element="btn">
+				{{ $g_logos['button']['title'] }}
+			</x-button>
+			@endif
+		</div>
 	</div>
 	@endif
 </section>

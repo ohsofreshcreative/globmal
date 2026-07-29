@@ -19,7 +19,7 @@ background:
 
 		<div class="__inside c-main relative">
 			<div class="__content w-full md:max-w-3xl md:px-16 py-6 md:py-12 px-0">
-				<p data-gsap-element="header" class="text-2xl !text-white m-header">
+				<p data-gsap-element="header" class="text-2xl !text-white m-header font-header">
 					{!! $g_teaser['header'] !!}
 				</p>
 

@@ -37,10 +37,9 @@
 				</div>
 				@endif
 			</div>
-
 			<div class="__brand order2 relative z-10 py-4">
 				@if (!empty($g_brand['map']))
-				<div class="__map-wrapper absolute pointer-events-none -z-10 flex items-center justify-center">
+				<div class="__map-wrapper absolute pointer-events-none  flex items-center justify-center overflow-visible">
 					<img class="w-full h-auto object-contain" src="{{ $g_brand['map']['url'] }}" alt="">
 				</div>
 				@endif

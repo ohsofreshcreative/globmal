@@ -12,13 +12,13 @@
 	<div class="__wrapper c-main relative z-20">
 		@if(!empty($g_slider['title']))
 		<div data-gsap-element="header" class="__wrapper text-white ">
-			<h3 class="mb-6">
+			<h3 class="m-title">
 				{{ $g_slider['title'] }}
 			</h3>
 		</div>
 		@endif
 		@if(!empty($g_slider['text']))
-		<div class="mb-6 text-white" data-gsap-element="txt">
+		<div class="mb-14 text-white" data-gsap-element="txt">
 			{!! $g_slider['text'] !!}
 		</div>
 		@endif

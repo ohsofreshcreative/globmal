@@ -1,3 +1,24 @@
-.b-logos {
+.b-logos.section-dark {
+	.blur {
+		content: '';
+		position: absolute;
+		right: -180px;
+		top: -165px;
+		width: 597px;
+		height: 492px;
+		border-radius: 9999px;
+		opacity: 0.7;
+		background: var(--color-primary);
+		filter: blur(111px);
+		transform: rotate(-18deg);
+		pointer-events: none;
+	}
+	h2{
+		color: #fff;
+	}
+	.__card {
+		background: var(--color-soft);
+		border-radius: var(--radius);
+	}
 	
 }

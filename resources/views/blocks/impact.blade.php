@@ -10,7 +10,7 @@
 	])>
 
 	<div class="__wrapper relative">
-		<div class="__col grid grid-cols-1 lg:grid-cols-2 items-center gap-8 lg:gap-20">
+		<div class="__col grid grid-cols-1 lg:grid-cols-2 items-center gap-8 lg:gap-10">
 
 			<div class="__impact order2">
 				@if (!empty($g_impact['subtitle']))

@@ -1534,6 +1534,11 @@
           "color": "var(--bg-brand)"
         },
         {
+          "name": "Background (Blue Light)",
+          "slug": "background-blue-light",
+          "color": "var(--blue-light)"
+        },
+        {
           "name": "Primary (Light)",
           "slug": "primary-light",
           "color": "var(--color-primary-300)"
@@ -1557,6 +1562,11 @@
           "name": "P (Lighter)",
           "slug": "p-lighter",
           "color": "rgba(var(--p-lighter))"
+        },
+        {
+          "name": "Soft",
+          "slug": "soft",
+          "color": "rgb(var(--soft))"
         }
       ]
     },

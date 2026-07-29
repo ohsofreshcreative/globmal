@@ -128,6 +128,7 @@ class Overlap extends Block
 					'section-brand' => 'Marki',
 					'section-gradient' => 'Gradient',
 					'section-dark' => 'Ciemne',
+					'section-blue' => 'Niebieskie',
 				],
 				'default_value' => 'none',
 				'ui' => 0, // Ulepszony interfejs

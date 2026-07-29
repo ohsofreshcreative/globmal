@@ -12,7 +12,7 @@
 	/* #1E1E1E */
 
 	/* PRIMARY */
-	--primary:  0 101 167; 
+	--primary: 0 101 167;
 	/* #0065A7 */
 	--p-hover: 17 51 81;
 	/* #113351 */
@@ -41,7 +41,7 @@
 	/* #0A2337 */
 
 	--action: rgb(40, 101, 162);
-		--blue: 32 82 208;
+	--blue: 32 82 208;
 	/* #2052D0 */
 	--blue-hover: 21 66 166;
 	/* #1542A6 */
@@ -142,7 +142,8 @@
 	--brand: 0 34 56;
 	/* #002238 */
 	--p-lighter: 170 204 226 1;
-
+	--soft: 231 241 255;
+	/* #E7F1FF */
 }
 
 @theme {
@@ -198,6 +199,7 @@
 	--color-page: var(--bg);
 	--color-background-light: var(--bg-light);
 	--color-background-brand: var(--bg-brand);
+	--color-background-blue-light: var(--blue-light);
 	--color-background-dark: var(--bg-dark);
 
 	--color-primary-light: var(--color-primary-300);
@@ -214,7 +216,7 @@
 	--color-light-100: var(--light-100);
 	--color-brand: rgb(0 34 56);
 	--color-p-lighter: rgba(var(--p-lighter));
-
+	--color-soft: rgb(var(--soft));
 }
 
 @import '../css/variables.scss';

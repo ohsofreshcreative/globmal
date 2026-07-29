@@ -12,8 +12,8 @@
 	<div class="__wrapper  relative">
 		<div class="__col grid grid-cols-1 lg:grid-cols-2 items-center gap-8 lg:gap-20">
 			@if (!empty($g_about['image']))
-			<div data-gsap-element="img" class="__img h-full order1 aspect-[542/633]">
-				<img class="radius h-full w-full object-cover" src="{{ $g_about['image']['url'] }}" alt="{{ $g_about['image']['alt'] ?? '' }}">
+			<div data-gsap-element="img" class="__img  order1 aspect-[542/633] max-h-150 ">
+				<img class="radius max-h-150  w-full object-cower block" src="{{ $g_about['image']['url'] }}" alt="{{ $g_about['image']['alt'] ?? '' }}">
 			</div>
 			@endif
 			<div class="__about order2">

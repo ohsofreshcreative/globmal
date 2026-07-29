@@ -10,7 +10,7 @@ $sectionClass .= $nomt ? ' !mt-0' : '';
 	<div
 		class="__wrapper relative  items-center flex">
 		<div class="__inside  relative">
-			<div class="__content w-full  md:px-12 px-0 py-12">
+			<div class="__content w-full  md:px-12 px-6 py-12">
 				<h3 data-gsap-element="header" class="!text-h4 !text-black">
 					{!! $g_guide['header'] !!}
 				</h3>
