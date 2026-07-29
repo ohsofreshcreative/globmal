@@ -38,7 +38,7 @@ $is_admin = is_admin();
 		@if(!empty($grouped_products))
 		<div x-data="{ activeTab: 'all' }" class="mt-12">
 			<div class="products-swiper swiper mb-10">
-				<div class="swiper-wrapper">
+				<div class="swiper-wrapper gap-4">
 
 					<div class="swiper-slide">
 						<button

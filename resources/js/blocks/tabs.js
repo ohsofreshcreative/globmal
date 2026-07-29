@@ -91,7 +91,6 @@ import 'swiper/css';
 document.querySelectorAll('.tabs-swiper').forEach((slider) => {
     new Swiper(slider, {
         slidesPerView: 'auto',
-        spaceBetween: 14,
         freeMode: true,
         grabCursor: true,
     });

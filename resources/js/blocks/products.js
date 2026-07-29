@@ -91,7 +91,7 @@ import 'swiper/css';
     document.querySelectorAll(selector).forEach((slider) => {
         new Swiper(slider, {
             slidesPerView: 'auto',
-            spaceBetween: 14,
+          
             freeMode: true,
             grabCursor: true,
         });

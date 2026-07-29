@@ -40,7 +40,7 @@ $grouped_tabs[$tabName][] = $item;
 		@if(!empty($grouped_tabs))
 		<div x-data="{ activeTab: 0 }" class="mt-12">
 			<div class="tabs-swiper swiper mb-10 py-2">
-				<div class="swiper-wrapper">
+				<div class="swiper-wrapper gap-4">
 					@foreach ($grouped_tabs as $name => $items)
 					<div class="swiper-slide">
 						<button
