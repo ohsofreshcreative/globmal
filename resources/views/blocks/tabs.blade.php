@@ -23,8 +23,8 @@ $grouped_tabs[$tabName][] = $item;
 
 <!--- tabs --->
 
-<section data-gsap-anim="section" @if(!empty($section_id)) id="{{ $section_id }}" @endif class="b-tabs relative -smt {{ $sectionClass }} {{ $section_class }}">
-	<div class="__wrapper c-main relative">
+<section data-gsap-anim="section" @if(!empty($section_id)) id="{{ $section_id }}" @endif class="b-tabs relative -spt overflow-hidden {{ $sectionClass }} {{ $section_class }}">
+	<div class="__wrapper c-main relative z-20">
 		@if (!empty($g_tabs['title']))
 		<div class="title !text-secondary" data-gsap-element="title">{{ $g_tabs['title'] }}</div>
 		@endif
@@ -95,4 +95,6 @@ $grouped_tabs[$tabName][] = $item;
 		</div>
 		@endif
 	</div>
+
+				<img class="absolute z-0 hidden xl:block pointer-events-none w-220 xl:w-280 h-auto  -top-42 -right-200 " src="/wp-content/uploads/2026/07/circle-mask.svg" />
 </section>
