@@ -45,7 +45,7 @@
 					variant="white"
 					class=""
 					data-gsap-element="btn">
-					{{ $g_hero['button2']['title'] }}200
+					{{ $g_hero['button2']['title'] }}
 				</x-button>
 				@endif
 			</div>

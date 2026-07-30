@@ -3,17 +3,17 @@ use App\Walkers\DropdownWalker;
 use App\Walkers\MobileDropdownWalker;
 @endphp
 
-<header x-data="{ mobileOpen: false }" class="z-50 masthead fixed-top bg-transparent">
+<header x-data="{ mobileOpen: false }" class="z-50 masthead fixed-top bg-transparent text-white bg-transparent rounded-[40px] border border-white/20 shadow-lg mt-2 mx-4">
 
 	<!-- Desktop Header -->
-	<div class="__desktop-menu items-center justify-between hidden py-3 mx-4 px-12  xl:flex text-white bg-transparent rounded-[40px] border border-white/20 shadow-lg mt-2">
+	<div class="items-center justify-between hidden py-3 px-12  xl:flex ">
 		<a class="brand shrink-0" href="{{ home_url('/') }}">
 			@if (is_array($logo) && !empty($logo['url']))
-				<img src="{{ $logo['url'] }}" alt="{{ $logo['alt'] ?? ($siteName ?? 'Logo') }}" class="w-auto h-12">
+			<img src="{{ $logo['url'] }}" alt="{{ $logo['alt'] ?? ($siteName ?? 'Logo') }}" class="w-auto h-12">
 			@elseif (is_string($logo) && !empty($logo))
-				<img src="{{ $logo }}" alt="{{ $siteName ?? 'Logo' }}" class="w-auto h-12">
+			<img src="{{ $logo }}" alt="{{ $siteName ?? 'Logo' }}" class="w-auto h-12">
 			@else
-				<span class="text-xl font-bold">{{ $siteName }}</span>
+			<span class="text-xl font-bold">{{ $siteName }}</span>
 			@endif
 		</a>
 		@if (has_nav_menu('primary_navigation'))
@@ -40,11 +40,11 @@ use App\Walkers\MobileDropdownWalker;
 	<div class="flex items-center justify-between p-4 mobile-menu fixed-top xl:hidden text-white">
 		<a class="brand shrink-0" href="{{ home_url('/') }}">
 			@if (is_array($logo) && !empty($logo['url']))
-				<img src="{{ $logo['url'] }}" alt="{{ $logo['alt'] ?? ($siteName ?? 'Logo') }}" class="w-auto h-12">
+			<img src="{{ $logo['url'] }}" alt="{{ $logo['alt'] ?? ($siteName ?? 'Logo') }}" class="w-auto h-12">
 			@elseif (is_string($logo) && !empty($logo))
-				<img src="{{ $logo }}" alt="{{ $siteName ?? 'Logo' }}" class="w-auto h-12">
+			<img src="{{ $logo }}" alt="{{ $siteName ?? 'Logo' }}" class="w-auto h-12">
 			@else
-				<span class="text-lg font-bold">{{ $siteName }}</span>
+			<span class="text-lg font-bold">{{ $siteName }}</span>
 			@endif
 		</a>
 		<button
@@ -81,11 +81,11 @@ use App\Walkers\MobileDropdownWalker;
 				<span class="">
 					<a class="brand shrink-0" href="{{ home_url('/') }}">
 						@if (is_array($logo) && !empty($logo['url']))
-							<img src="{{ $logo['url'] }}" alt="{{ $logo['alt'] ?? ($siteName ?? 'Logo') }}" class="w-auto h-12">
+						<img src="{{ $logo['url'] }}" alt="{{ $logo['alt'] ?? ($siteName ?? 'Logo') }}" class="w-auto h-12">
 						@elseif (is_string($logo) && !empty($logo))
-							<img src="{{ $logo }}" alt="{{ $siteName ?? 'Logo' }}" class="w-auto h-12">
+						<img src="{{ $logo }}" alt="{{ $siteName ?? 'Logo' }}" class="w-auto h-12">
 						@else
-							<span class="text-lg font-bold">{{ $siteName }}</span>
+						<span class="text-lg font-bold">{{ $siteName }}</span>
 						@endif
 					</a>
 				</span>

@@ -101,7 +101,7 @@ body {
 	--spt: 104px;
 	--smb: 104px;
 	--spb: 104px;
-	--menu-height: 87px !important;
+	--menu-height: 92px !important;
 
 	--img-xs: 176px;
 	--img-s: 200px;
@@ -766,13 +766,11 @@ h6,
 }
 
 .fixed-top.scrollDown {
-	.__desktop-menu {
-		box-shadow: 0 3px 5px rgba(27, 106, 23, 0.2);
-		background-color: #fff !important;
-	}
+		box-shadow: 0 3px 5px rgba(23, 42, 106, 0.2);
+		    background: var(--color-blue-light);
 
 	li {
-		color: #000 !important;
+		color: #FFF !important;
 	}
 }
 #menu-menu {

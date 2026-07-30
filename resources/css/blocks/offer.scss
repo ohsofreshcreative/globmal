@@ -86,20 +86,24 @@
     flex-direction: column;
     justify-content: space-between;
     padding: 32px;
-    padding-top: 170px; 
-    transition: all 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+    padding-top: 170px;
+    transform: translateX(8px);
+    transition: opacity 0.2s ease, transform 0.25s ease;
+
+    @media (min-width: 640px) {
+      left: 45%;
+      padding-top: 48px;
+      padding-bottom: 48px;
+      padding-right: 48px;
+      padding-left: 32px;
+    }
 
     &.is-active {
       opacity: 1;
       pointer-events: auto;
-
-      @media (min-width: 640px) {
-        left: 45%;
-        padding-top: 48px;
-        padding-bottom: 48px;
-        padding-right: 48px;
-        padding-left: 32px;
-      }
+      transform: translateX(0);
+      transition: opacity 0.45s cubic-bezier(0.25, 1, 0.5, 1) 0.2s,
+                  transform 0.5s cubic-bezier(0.25, 1, 0.5, 1) 0.2s;
     }
   }
 
