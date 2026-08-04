@@ -6,7 +6,7 @@ use App\Walkers\MobileDropdownWalker;
 <header x-data="{ mobileOpen: false }" class="z-50 masthead fixed-top bg-transparent text-white bg-transparent rounded-[40px] border border-white/20 shadow-lg mt-2 mx-4">
 
 	<!-- Desktop Header -->
-	<div class="items-center justify-between hidden py-3 px-12  xl:flex ">
+	<div class="items-center justify-between hidden px-12  xl:flex ">
 		<a class="brand shrink-0" href="{{ home_url('/') }}">
 			@if (is_array($logo) && !empty($logo['url']))
 			<img src="{{ $logo['url'] }}" alt="{{ $logo['alt'] ?? ($siteName ?? 'Logo') }}" class="w-auto h-12">

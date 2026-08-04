@@ -71,6 +71,18 @@
       height: 100%;
       object-fit: cover;
     }
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: inherit;
+
+      @media (min-width: 640px) {
+        display: none;
+      }
+    }
   }
 
 
@@ -80,15 +92,12 @@
     right: 0;
     bottom: 0;
     left: 0;
-    opacity: 0;
     pointer-events: none;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding: 32px;
     padding-top: 170px;
-    transform: translateX(8px);
-    transition: opacity 0.2s ease, transform 0.25s ease;
 
     @media (min-width: 640px) {
       left: 45%;
@@ -98,12 +107,58 @@
       padding-left: 32px;
     }
 
+    .offer-card-number,
+    .offer-card-title,
+    .offer-excerpt-list {
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.15s ease, transform 0.15s ease;
+    }
+
+    @media (max-width: 639px) {
+      .offer-card-number,
+      .offer-card-title {
+        opacity: 1;
+        transform: translateY(0);
+        color: #ffffff;
+      }
+
+      .offer-excerpt-list {
+        opacity: 1;
+        transform: translateY(0);
+        color: #ffffff;
+
+        ul li,
+        ol li {
+          color: #ffffff;
+
+          &::before {
+            border-color: #ffffff;
+          }
+        }
+      }
+    }
+
     &.is-active {
-      opacity: 1;
       pointer-events: auto;
-      transform: translateX(0);
-      transition: opacity 0.45s cubic-bezier(0.25, 1, 0.5, 1) 0.2s,
-                  transform 0.5s cubic-bezier(0.25, 1, 0.5, 1) 0.2s;
+
+      .offer-card-number {
+        opacity: 1;
+        transform: translateY(0);
+        transition: opacity 0.35s ease 0.3s, transform 0.4s ease 0.3s;
+      }
+
+      .offer-card-title {
+        opacity: 1;
+        transform: translateY(0);
+        transition: opacity 0.35s ease 0.3s, transform 0.4s ease 0.3s;
+      }
+
+      .offer-excerpt-list {
+        opacity: 1;
+        transform: translateY(0);
+        transition: opacity 0.35s ease 0.3s, transform 0.4s ease 0.3s;
+      }
     }
   }
 

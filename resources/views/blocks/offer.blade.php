@@ -27,7 +27,7 @@
 		@endphp
 
 		<div 
-			x-data="{ active: null }"
+			x-data="{ active: 0 }"
 			class="offer-grid-container"
 		>
 			@foreach($serialized_posts as $post)
@@ -41,7 +41,6 @@
 	<a
     href="{{ get_permalink($post->ID) }}"
     @mouseenter="active = {{ $index }}"
-    @mouseleave="active = null"
     class="offer-card block"
     :class="{ 'is-active': active === {{ $index }} }"
 >
@@ -61,12 +60,12 @@
 					:class="{ 'is-active': active === {{ $index }} }"
 				>
 					<div class="flex">
-						<div class="text-h3 text-blue-light shrink-0">
+						<div class="offer-card-number text-h3 text-blue-light shrink-0">
 							{{ sprintf('%02d', $index + 1) }}
 						</div>
 					</div>
 					<div class="mt-auto flex flex-col gap-4">
-						<h3 class="text-h4 text-brand">
+						<h3 class="offer-card-title text-h4 text-brand">
 							{{ get_the_title($post->ID) }}
 						</h3>
 
