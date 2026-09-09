@@ -27,15 +27,6 @@ class Categories extends Block
 
 		$categories
 			->setLocation('block', '==', 'acf/categories') // ważne!
-			->addText('block-title', [
-				'label' => 'Tytuł',
-				'required' => 0,
-			])
-			->addAccordion('accordion1', [
-				'label' => 'Rozwiązania',
-				'open' => false,
-				'multi_expand' => true,
-			])
 			/*--- TAB #1 ---*/
 			->addTab('Treści', ['placement' => 'top'])
 			->addGroup('g_categories', ['label' => ''])

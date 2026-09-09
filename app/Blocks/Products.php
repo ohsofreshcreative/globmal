@@ -26,15 +26,6 @@ class Products extends Block
 
 		$products
 			->setLocation('block', '==', 'acf/products') // ważne!
-			->addText('block-title', [
-				'label' => 'Tytuł',
-				'required' => 0,
-			])
-			->addAccordion('accordion1', [
-				'label' => 'Kategorie produktów',
-				'open' => false,
-				'multi_expand' => true,
-			])
 			/*--- TAB #1 ---*/
 			->addTab('Treści', ['placement' => 'top'])
 			->addGroup('g_products', ['label' => ''])

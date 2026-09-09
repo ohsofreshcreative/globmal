@@ -27,15 +27,6 @@ class Offer extends Block
 
 		$offer
 			->setLocation('block', '==', 'acf/offer') // ważne!
-			->addText('block-title', [
-				'label' => 'Tytuł bloku',
-				'required' => 0,
-			])
-			->addAccordion('accordion1', [
-				'label' => 'Oferta - Ostatnie wpisy',
-				'open' => true,
-				'multi_expand' => true,
-			])
 			/*--- FIELDS ---*/
 			->addTab('Treści', ['placement' => 'top'])
 			->addGroup('posts_settings', ['label' => ''])

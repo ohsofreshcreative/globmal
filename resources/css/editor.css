@@ -187,7 +187,13 @@
 	border: 1px solid #e3e7ea !important;
 	border-radius: 6px !important;
 	padding: 14px !important;
-	background-color:#151923;
+	background-color: #fff;
+	color: var(--color-body);
+}
+
+/* Ciemne sekcje potrzebują własnego koloru tekstu w kanwie Gutenberga. */
+.editor-styles-wrapper :is(.section-blue, .section-brand, .section-primary, .section-gradient, .section-dark) {
+	color: #fff;
 }
 
 /**

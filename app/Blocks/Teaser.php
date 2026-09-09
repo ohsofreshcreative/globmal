@@ -27,15 +27,6 @@ class Teaser extends Block
 
 		$teaser
 			->setLocation('block', '==', 'acf/teaser') // ważne!
-			->addText('block-title', [
-				'label' => 'Tytuł',
-				'required' => 0,
-			])
-			->addAccordion('accordion1', [
-				'label' => 'Baner - z tłem i treścią',
-				'open' => false,
-				'multi_expand' => true,
-			])
 			/*--- TAB #1 ---*/
 			->addTab('Treść', ['placement' => 'top'])
 			->addGroup('g_teaser', ['label' => 'teaser'])

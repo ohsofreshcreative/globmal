@@ -29,15 +29,6 @@ class Overview extends Block
 
 		$overview
 			->setLocation('block', '==', 'acf/overview') // ważne!
-			->addText('block-title', [
-				'label' => 'Tytuł',
-				'required' => 0,
-			])
-			->addAccordion('accordion1', [
-				'label' => 'Tekst oraz zdjęcie',
-				'open' => false,
-				'multi_expand' => true,
-			])
 			/*--- GROUP ---*/
 			->addTab('Elementy', ['placement' => 'top'])
 			->addGroup('g_overview', ['label' => ''])

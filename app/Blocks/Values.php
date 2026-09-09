@@ -29,15 +29,6 @@ class Values extends Block
 
 		$values
 			->setLocation('block', '==', 'acf/values') // ważne!
-			->addText('block-title', [
-				'label' => 'Tytuł',
-				'required' => 0,
-			])
-			->addAccordion('accordion1', [
-				'label' => 'Dlaczego GlobMAL?',
-				'open' => false,
-				'multi_expand' => true,
-			])
 			/*--- GROUP ---*/
 			->addTab('Elementy', ['placement' => 'top'])
 			->addGroup('g_values', ['label' => ''])

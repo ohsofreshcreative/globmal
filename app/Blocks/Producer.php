@@ -29,15 +29,6 @@ class Producer extends Block
 
 		$producer
 			->setLocation('block', '==', 'acf/producer') // ważne!
-			->addText('block-title', [
-				'label' => 'Tytuł',
-				'required' => 0,
-			])
-			->addAccordion('accordion1', [
-				'label' => 'Tekst oraz zdjęcie',
-				'open' => false,
-				'multi_expand' => true,
-			])
 			/*--- GROUP ---*/
 			->addTab('Elementy', ['placement' => 'top'])
 			->addGroup('g_producer', ['label' => ''])

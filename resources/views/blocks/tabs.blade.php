@@ -76,7 +76,7 @@ $grouped_tabs[$tabName][] = $item;
 						@if(!empty($item['image']))
 						<div class="relative overflow-hidden rounded-xs">
 							<div class="absolute inset-0 z-10 rounded-xs" style="background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, #001421) 100%)"></div>
-							<img class="w-full img-xl object-cover" src="{{ $item['image']['url'] }}" alt="{{ $item['image']['alt'] ?? '' }}" />
+							<img class="w-full img-xl object-cover radius" src="{{ $item['image']['url'] }}" alt="{{ $item['image']['alt'] ?? '' }}" />
 						</div>
 						@endif
 					</div>

@@ -27,15 +27,6 @@ class Solutions extends Block
 
 		$solutions
 			->setLocation('block', '==', 'acf/solutions') // ważne!
-			->addText('block-title', [
-				'label' => 'Tytuł',
-				'required' => 0,
-			])
-			->addAccordion('accordion1', [
-				'label' => 'Rozwiązania',
-				'open' => false,
-				'multi_expand' => true,
-			])
 			/*--- TAB #1 ---*/
 			->addTab('Treści', ['placement' => 'top'])
 			->addGroup('g_solutions', ['label' => ''])

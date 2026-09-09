@@ -33,14 +33,14 @@ $sectionClass .= $brandbg ? ' section-brand' : '';
             @foreach($posts as $post)
                 <a
                     href="{{ get_permalink($post->ID) }}"
-                    class="group relative flex flex-col bg-blue-50 p-6 rounded-xs "
+                    class="group relative flex flex-col bg-blue-50 p-6 rounded-3xl "
                 >
                     @if($show_image && has_post_thumbnail($post->ID))
                         <div class="w-auto overflow-hidden ">
                             <img
                                 src="{{ get_the_post_thumbnail_url($post->ID, 'large') }}"
                                 alt="{{ get_the_title($post->ID) }}"
-                                class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-103 rounded-xs"
+                                class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-103 radius"
                             />
                         </div>
                     @endif

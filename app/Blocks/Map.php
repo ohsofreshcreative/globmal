@@ -29,15 +29,6 @@ class Map extends Block
 
 		$map
 			->setLocation('block', '==', 'acf/map')
-			->addText('block-title', [
-				'label' => 'Tytuł bloku',
-				'required' => 0,
-			])
-			->addAccordion('accordion1', [
-				'label' => 'Treść mapy',
-				'open' => false,
-				'multi_expand' => true,
-			])
 			/*--- GROUP ---*/
 			->addTab('Elementy', ['placement' => 'top'])
 			->addGroup('g_map', ['label' => ''])

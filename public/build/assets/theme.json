@@ -1459,6 +1459,11 @@
           "color": "#fff"
         },
         {
+          "name": "Body",
+          "slug": "body",
+          "color": "rgb(var(--body))"
+        },
+        {
           "name": "Primary",
           "slug": "primary",
           "color": "rgb(var(--primary))"
