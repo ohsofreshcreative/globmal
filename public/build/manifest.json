@@ -30,13 +30,16 @@
     ]
   },
   "resources/css/editor.css": {
-    "file": "assets/editor-CW03PuZ7.css",
+    "file": "assets/editor-CgriPo4_.css",
     "name": "editor",
     "names": [
       "editor.css"
     ],
     "src": "resources/css/editor.css",
-    "isEntry": true
+    "isEntry": true,
+    "assets": [
+      "assets/pointer-C3ifhTTD.svg"
+    ]
   },
   "resources/images/pointer.svg": {
     "file": "assets/pointer-C3ifhTTD.svg",
