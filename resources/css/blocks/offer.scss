@@ -29,7 +29,7 @@
 
   .offer-card {
     position: relative;
-    height: 380px;
+    min-height: var(--offer-row-height, 380px);
     border-radius: 16px;
     overflow: hidden;
     cursor: pointer;
@@ -98,13 +98,18 @@
     justify-content: space-between;
     padding: 32px;
     padding-top: 170px;
+    padding-bottom: 40px;
 
     @media (min-width: 640px) {
       left: 45%;
       padding-top: 48px;
-      padding-bottom: 48px;
+      padding-bottom: 56px;
       padding-right: 48px;
       padding-left: 32px;
+    }
+
+    > div {
+      flex-shrink: 0;
     }
 
     .offer-card-number,
@@ -113,6 +118,10 @@
       opacity: 0;
       transform: translateY(8px);
       transition: opacity 0.15s ease, transform 0.15s ease;
+    }
+
+    .offer-card-body {
+      min-height: 0;
     }
 
     @media (max-width: 639px) {
@@ -142,6 +151,10 @@
     &.is-active {
       pointer-events: auto;
 
+      @media (min-width: 640px) {
+        padding-top: 32px;
+      }
+
       .offer-card-number {
         opacity: 1;
         transform: translateY(0);
@@ -167,6 +180,14 @@
     font-size: 14px;
     font-weight: 500;
     line-height: 1.6;
+
+    p {
+      margin: 0 0 8px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
 
     ul, ol {
       list-style: none; 

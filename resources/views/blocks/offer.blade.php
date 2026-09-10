@@ -26,28 +26,21 @@
 		$serialized_posts = array_slice($posts, 0, 3);
 		@endphp
 
-		<div 
-			x-data="{ active: 0 }"
-			class="offer-grid-container"
-		>
+		<div class="offer-grid-container">
 			@foreach($serialized_posts as $post)
 			@php
 			$index = $loop->index;
+			$is_active = $index === 0;
 			$thumbnail_id = get_post_thumbnail_id($post->ID);
 			$image_url = $thumbnail_id ? wp_get_attachment_image_url($thumbnail_id, 'large') : null;
-			$raw_excerpt = get_the_excerpt($post->ID);
+			$raw_excerpt = get_field('offer_card_excerpt', $post->ID) ?: get_the_excerpt($post->ID);
 			@endphp
 
 	<a
     href="{{ get_permalink($post->ID) }}"
-    @mouseenter="active = {{ $index }}"
-    class="offer-card block"
-    :class="{ 'is-active': active === {{ $index }} }"
+    @class(['offer-card', 'block', 'is-active' => $is_active])
 >
-				<div 
-					class="offer-card-image-wrap"
-					:class="{ 'is-active': active === {{ $index }} }"
-				>
+				<div @class(['offer-card-image-wrap', 'is-active' => $is_active])>
 					@if($image_url)
 					<img
 						src="{{ $image_url }}"
@@ -55,17 +48,14 @@
 					>
 					@endif
 				</div>
-				<div 
-					class="offer-card-content-wrap"
-					:class="{ 'is-active': active === {{ $index }} }"
-				>
+				<div @class(['offer-card-content-wrap', 'is-active' => $is_active])>
 					<div class="flex">
-						<div class="offer-card-number text-h3 text-blue-light shrink-0">
+						<div class="offer-card-number text-h4 text-blue-light shrink-0">
 							{{ sprintf('%02d', $index + 1) }}
 						</div>
 					</div>
-					<div class="mt-auto flex flex-col gap-4">
-						<h3 class="offer-card-title text-h4 text-brand">
+					<div class="offer-card-body mt-auto flex flex-col gap-4">
+						<h3 class="offer-card-title text-h5 text-brand">
 							{{ get_the_title($post->ID) }}
 						</h3>
 

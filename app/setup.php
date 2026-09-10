@@ -318,6 +318,48 @@ add_action('acf/init', function () {
 	}
 });
 
+/*--- OFFER CARD EXCERPT ---*/
+
+/**
+ * Register the ACF field for the offer card excerpt.
+ */
+add_action('acf/init', function () {
+	if (function_exists('acf_add_local_field_group')) {
+		acf_add_local_field_group([
+			'key' => 'group_offer_settings',
+			'title' => 'Ustawienia Oferty',
+			'fields' => [
+				[
+					'key' => 'field_offer_card_excerpt',
+					'label' => 'Opis na karcie oferty',
+					'name' => 'offer_card_excerpt',
+					'type' => 'wysiwyg',
+					'instructions' => 'Tekst wyświetlany na karcie oferty w bloku "Nasza Oferta". Jeśli puste, użyty zostanie domyślny excerpt.',
+					'tabs' => 'visual',
+					'toolbar' => 'basic',
+					'media_upload' => 0,
+					'delay' => 0,
+				],
+			],
+			'location' => [
+				[
+					[
+						'param' => 'post_type',
+						'operator' => '==',
+						'value' => 'offers',
+					],
+				],
+			],
+			'menu_order' => 1,
+			'position' => 'side',
+			'style' => 'default',
+			'label_placement' => 'top',
+			'instruction_placement' => 'label',
+			'active' => true,
+		]);
+	}
+});
+
 /**
  * Remove archive title prefix (e.g., "Category:", "Tag:").
  */
@@ -486,7 +528,6 @@ add_action('template_redirect', function () {
 
 
 /*--- PAGINATION ---*/
-
 
 add_filter('the_posts_pagination_args', function ($args) {
     $args['prev_text'] = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>';

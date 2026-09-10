@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (document.querySelector('.b-tabs')) import('./blocks/tabs');
   if (document.querySelector('.b-slider')) import('./blocks/slider');
   if (document.querySelector('.b-products')) import('./blocks/products');
+  if (document.querySelector('.b-offer')) import('./blocks/offer');
 });
 
 /*--- NOT USED ---*/

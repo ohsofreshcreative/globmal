@@ -1,10 +1,6 @@
 {
-  "_pagination-D8gyGEei.css": {
-    "file": "assets/pagination-D8gyGEei.css",
-    "src": "_pagination-D8gyGEei.css"
-  },
-  "_pagination-DqqV8Ont.js": {
-    "file": "assets/pagination-DqqV8Ont.js",
+  "_pagination-CPsQ7LkU.js": {
+    "file": "assets/pagination-CPsQ7LkU.js",
     "name": "pagination",
     "imports": [
       "resources/js/app.js"
@@ -13,12 +9,16 @@
       "assets/pagination-D8gyGEei.css"
     ]
   },
+  "_pagination-D8gyGEei.css": {
+    "file": "assets/pagination-D8gyGEei.css",
+    "src": "_pagination-D8gyGEei.css"
+  },
   "editor.deps.json": {
     "file": "assets/editor.deps-DxpY22xl.json",
     "src": "editor.deps.json"
   },
   "resources/css/app.css": {
-    "file": "assets/app-D8FLeIdk.css",
+    "file": "assets/app-CAcQ-a_j.css",
     "name": "app",
     "names": [
       "app.css"
@@ -30,7 +30,7 @@
     ]
   },
   "resources/css/editor.css": {
-    "file": "assets/editor-BCeWNN-_.css",
+    "file": "assets/editor-GmjxPq2E.css",
     "name": "editor",
     "names": [
       "editor.css"
@@ -46,7 +46,7 @@
     "src": "resources/images/pointer.svg"
   },
   "resources/js/app.js": {
-    "file": "assets/app-C2vsQxzv.js",
+    "file": "assets/app-bxwAPHgr.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
@@ -54,14 +54,21 @@
       "resources/js/blocks/reviews.js",
       "resources/js/blocks/tabs.js",
       "resources/js/blocks/slider.js",
-      "resources/js/blocks/products.js"
+      "resources/js/blocks/products.js",
+      "resources/js/blocks/offer.js"
     ],
     "css": [
       "assets/app-HzbfsHSZ.css"
     ]
   },
+  "resources/js/blocks/offer.js": {
+    "file": "assets/offer-BoeDs7hj.js",
+    "name": "offer",
+    "src": "resources/js/blocks/offer.js",
+    "isDynamicEntry": true
+  },
   "resources/js/blocks/products.js": {
-    "file": "assets/products-BTrA_vq9.js",
+    "file": "assets/products-DZmJTruz.js",
     "name": "products",
     "src": "resources/js/blocks/products.js",
     "isDynamicEntry": true,
@@ -70,27 +77,27 @@
     ]
   },
   "resources/js/blocks/reviews.js": {
-    "file": "assets/reviews-DC7lN-WH.js",
+    "file": "assets/reviews-CNUwHNFV.js",
     "name": "reviews",
     "src": "resources/js/blocks/reviews.js",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_pagination-DqqV8Ont.js"
+      "_pagination-CPsQ7LkU.js"
     ]
   },
   "resources/js/blocks/slider.js": {
-    "file": "assets/slider-C975A1lv.js",
+    "file": "assets/slider-ukXhV4aV.js",
     "name": "slider",
     "src": "resources/js/blocks/slider.js",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_pagination-DqqV8Ont.js"
+      "_pagination-CPsQ7LkU.js"
     ]
   },
   "resources/js/blocks/tabs.js": {
-    "file": "assets/tabs-M2992PYF.js",
+    "file": "assets/tabs-DHxRBcjj.js",
     "name": "tabs",
     "src": "resources/js/blocks/tabs.js",
     "isDynamicEntry": true,
