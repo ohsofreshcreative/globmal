@@ -1,3 +1,51 @@
 .b-proces {
 
+	.__repeater {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr);
+		gap: 3.5rem;
+		padding: 0;
+		list-style: none;
+	}
+
+	.__step {
+		position: relative;
+		min-width: 0;
+		text-align: center;
+	}
+
+	.__image {
+		display: block;
+		width: 100%;
+		margin-inline: auto;
+		object-fit: contain;
+	}
+
+	.__title {
+		margin: 1rem 0 0;
+		font-size: 1rem;
+		line-height: 1.4;
+		overflow-wrap: anywhere;
+	}
+
+	.__arrow {
+		position: absolute;
+		bottom: -2.5rem;
+		left: calc(50% - 12px);
+		transform: rotate(90deg);
+	}
+
+	@media (min-width: 1024px) {
+		.__repeater {
+			grid-template-columns: repeat(var(--process-count), minmax(0, 1fr));
+			gap: 2rem;
+		}
+
+		.__arrow {
+			top: calc(4rem - 12px);
+			bottom: auto;
+			left: calc(100% + 4px);
+			transform: none;
+		}
+	}
 }

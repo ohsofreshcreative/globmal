@@ -44,11 +44,8 @@ class Proces extends Block
 				'label' => 'proces',
 				'layout' => 'table', // 'row', 'block', albo 'table'
 				'min' => 3,
-				'max' => 4,
-				'button_label' => 'Dodaj element oferty'
-			])
-			->addText('number', [
-				'label' => 'Krok',
+				'max' => 8,
+				'button_label' => 'Dodaj krok'
 			])
 			->addImage('image', [
 				'label' => 'Obraz',
@@ -57,12 +54,6 @@ class Proces extends Block
 			])
 			->addText('title', [
 				'label' => 'Nagłówek',
-			])
-			->addWysiwyg('txt', [
-				'label' => 'Treść',
-				'tabs' => 'all',
-				'toolbar' => 'full',
-				'media_upload' => true,
 			])
 			->endRepeater()
 
@@ -110,7 +101,7 @@ class Proces extends Block
 					'section-dark' => 'Ciemne',
 				],
 				'default_value' => 'none',
-				'ui' => 0,
+				'ui' => 0, // Ulepszony interfejs
 				'allow_null' => 0,
 			]);
 
@@ -131,8 +122,8 @@ class Proces extends Block
 			'wide' => (bool) get_field('wide'),
 			'nomt' => (bool) get_field('nomt'),
 			'gap' => (bool) get_field('gap'),
-
 			'background' => get_field('background') ?: 'none',
+
 		];
 
 		$fields['sectionClass'] = SectionClasses::fromMap($fields, [
