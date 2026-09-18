@@ -8,7 +8,7 @@
 	$section_class => filled($section_class),
 	$background => filled($background) && $background !== 'none',
 	])>
-			<img class="hidden md:block absolute pointer-events-none w-180 h-auto z-0 -bottom-80 -left-40" src="/wp-content/uploads/2026/07/shape.svg" />
+	<img class="hidden md:block absolute pointer-events-none w-180 h-auto z-0 -bottom-80 -left-40" src="/wp-content/uploads/2026/07/shape.svg" />
 	<div class="__wrapper c-main relative">
 		<div class="__col grid grid-cols-1 lg:grid-cols-2 items-center gap-8 lg:gap-20">
 			@if (!empty($g_content['image']))

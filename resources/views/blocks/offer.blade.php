@@ -26,7 +26,7 @@
 		$serialized_posts = array_slice($posts, 0, 3);
 		@endphp
 
-		<div class="offer-grid-container">
+		<div data-gsap-element="cards" class="offer-grid-container">
 			@foreach($serialized_posts as $post)
 			@php
 			$index = $loop->index;
@@ -36,19 +36,18 @@
 			$raw_excerpt = get_field('offer_card_excerpt', $post->ID) ?: get_the_excerpt($post->ID);
 			@endphp
 
-	<a
-    href="{{ get_permalink($post->ID) }}"
-    @class(['offer-card', 'block', 'is-active' => $is_active])
->
-				<div @class(['offer-card-image-wrap', 'is-active' => $is_active])>
+			<a
+				href="{{ get_permalink($post->ID) }}"
+				@class(['offer-card', 'block' , 'is-active'=> $is_active])
+				>
+				<div @class(['offer-card-image-wrap', 'is-active'=> $is_active])>
 					@if($image_url)
 					<img
 						src="{{ $image_url }}"
-						alt="{{ get_the_title($post->ID) }}"
-					>
+						alt="{{ get_the_title($post->ID) }}">
 					@endif
 				</div>
-				<div @class(['offer-card-content-wrap', 'is-active' => $is_active])>
+				<div @class(['offer-card-content-wrap', 'is-active'=> $is_active])>
 					<div class="flex">
 						<div class="offer-card-number text-h4 text-blue-light shrink-0">
 							{{ sprintf('%02d', $index + 1) }}

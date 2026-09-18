@@ -16,10 +16,10 @@
 					{!! $g_overlap['text'] !!}
 				</div>
 			</div>
-			<div class="grid grid-cols-1 gap-14 md:gap-28 mt-14">
+			<div data-gsap-element="cards" class="grid grid-cols-1 gap-14 md:gap-28 mt-14">
 				@foreach ($r_overlap as $item)
 				<div class="gsap__cards __cards sticky top-20 mt-4">
-					<div data-gsap-element="card" class="gsap__card __card p-8 radius" style="background-image:url({{ $item['image']['url'] }}); background-size: cover; background-position: center;">
+					<div class="gsap__card __card p-8 radius" style="background-image:url({{ $item['image']['url'] }}); background-size: cover; background-position: center;">
 						<div class="absolute inset-0 z-10 bg-primary/70 radius"></div>
 						<div class="__box relative z-12 text-white w-full my-8 md:my-20  md:px-20  flex flex-col justify-between h-full md:gap-40 gap-14">
 							@if (!empty($item['number']))

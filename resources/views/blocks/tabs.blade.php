@@ -29,16 +29,16 @@ $grouped_tabs[$tabName][] = $item;
 		<div class="title !text-secondary" data-gsap-element="title">{{ $g_tabs['title'] }}</div>
 		@endif
 		<div class="mb-10 flex grid grid-cols-1 md:grid-cols-2 items-start md:items-center gap-6">
-			<h2 class="text-brand text-h3">
+			<h2 data-gsap-element="header" class="text-brand text-h3">
 				{{ $g_tabs['header'] }}
 			</h2>
 
-			<div class="__txt  text-black">
+			<div data-gsap-element="txt" class="__txt  text-black">
 				{!! $g_tabs['text'] !!}
 			</div>
 		</div>
 		@if(!empty($grouped_tabs))
-		<div x-data="{ activeTab: 0 }" class="mt-12">
+		<div data-gsap-element="tabs" x-data="{ activeTab: 0 }" class="mt-12">
 			<div class="tabs-swiper swiper mb-10 py-2">
 				<div class="swiper-wrapper gap-4">
 					@foreach ($grouped_tabs as $name => $items)

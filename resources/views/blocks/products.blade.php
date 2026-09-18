@@ -67,14 +67,8 @@ $is_admin = is_admin();
 				@foreach ($r_products as $item)
 				@php
 				$tabName = !empty($item['tab']) ? trim($item['tab']) : 'Inne';
-				$hasButton = !empty($item['button']['url']);
-				$tag = $hasButton ? 'a' : 'div';
-				$href = $hasButton ? 'href="' . esc_url($item['button']['url']) . '"' : '';
-				$target = $hasButton ? 'target="' . esc_attr($item['button']['target'] ?? '_self') . '"' : '';
 				@endphp
-				<{!! $tag !!}
-					{!! $href !!}
-					{!! $target !!}
+				<a href="#zapytaj"
 					@if(!$is_admin)
 					x-show="activeTab === 'all' || activeTab === '{{ esc_attr($tabName) }}'"
 					x-cloak
@@ -103,16 +97,11 @@ $is_admin = is_admin();
 							{{ $item['title'] }}
 						</h3>
 						@endif
-					</div>
-					<div class="mt-8 ">
-						<div class="text-third  flex items-center gap-2 transition-transform duration-200">
-							<span class="text-base text-primary">{{ !empty($item['button']['title']) ? $item['button']['title'] : 'Zobacz produkty' }}</span>
-							<span class="inline-block transition-transform duration-200 group-hover:translate-x-1 text-lg leading-none"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="12" viewBox="0 0 13 12" fill="none">
-									<path d="M12.7296 5.31498C12.7293 5.31469 12.7291 5.31435 12.7287 5.31406L7.91118 0.281803C7.55027 -0.0951806 6.96652 -0.0937777 6.60727 0.285093C6.24806 0.663916 6.24944 1.27664 6.61036 1.65367L9.84486 5.03226H0.921985C0.412773 5.03226 0 5.46552 0 6C0 6.53448 0.412773 6.96774 0.921985 6.96774H9.84482L6.6104 10.3463C6.24949 10.7234 6.24811 11.3361 6.60731 11.7149C6.96656 12.0938 7.55037 12.0951 7.91123 11.7182L12.7288 6.68594C12.7291 6.68565 12.7293 6.68531 12.7296 6.68502C13.0907 6.30673 13.0896 5.69202 12.7296 5.31498Z" fill="#57606C" />
-								</svg></span>
+						<div class="mt-8 ">
+							<p class="text-base text-primary">Zapytaj o produkt</p>
 						</div>
 					</div>
-				</{!! $tag !!}>
+				</a>
 				@endforeach
 			</div>
 		</div>

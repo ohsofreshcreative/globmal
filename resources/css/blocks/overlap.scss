@@ -1,4 +1,10 @@
 .b-overlap {
+  .gsap__card {
+    position: relative;
+    overflow: hidden;
+    transform-origin: center top;
+  }
+
   .gsap__cards:nth-child(odd) {
     .__box {
       margin-right: auto; 
