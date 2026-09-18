@@ -98,7 +98,12 @@ $is_admin = is_admin();
 						</h3>
 						@endif
 						<div class="mt-8 ">
-							<p class="text-base text-primary">Zapytaj o produkt</p>
+							<p class="text-base text-primary flex items-center gap-2">
+								<span>Zapytaj o produkt</span>
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+									<path d="M5 12h14M12 5l7 7-7 7" />
+								</svg>
+							</p>
 						</div>
 					</div>
 				</a>
