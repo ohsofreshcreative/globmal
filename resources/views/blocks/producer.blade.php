@@ -30,6 +30,7 @@
 						@if (!empty($g_producer['button']))
 						<x-button
 							:href="$g_producer['button']['url']"
+							:target="$g_producer['button']['target'] ?? null"
 							variant="primary"
 							class=""
 							data-gsap-element="btn">

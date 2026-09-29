@@ -14,26 +14,48 @@
 	color:#000;
 }
 
-.editor-styles-wrapper .block-editor-block-list__layout.is-root-container > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+/* Treść kanwy, także HTML bez klas wp-block-* (np. podglądy ACF). */
+.editor-styles-wrapper :is(p, ul, ol) {
+    font-size: 16px !important;
+    line-height: 1.6 !important;
+}
+
+.editor-styles-wrapper :is(h1, h2, h3, h4, h5, h6, strong, b) {
+    font-weight: 700 !important;
+}
+
+.editor-styles-wrapper :is(h1, h2, h3, h4, h5, h6) {
+    margin-block: 1.25em 0.5em;
+}
+
+.editor-styles-wrapper :is(ul, ol) {
+    list-style-position: outside !important;
+    padding-inline-start: 1.75em !important;
+    margin-block: 0.75em !important;
+}
+
+.editor-styles-wrapper ul {
     list-style-type: disc !important;
 }
 
-.editor-styles-wrapper ul.wp-block-list {
-    list-style: none; /* Usuwamy domyślne punktory */
-    padding-left: 0;
+.editor-styles-wrapper ol {
+    list-style-type: decimal !important;
 }
 
-.editor-styles-wrapper ul.wp-block-list li {
-    display: flex; /* Ustawiamy li jako kontener flex */
-    align-items: flex-start; /* Wyrównujemy elementy do góry */
-    margin-bottom: 0.5em;
+.editor-styles-wrapper li {
+    display: list-item !important;
+    list-style: inherit !important;
+    font-size: inherit !important;
+    margin-block: 0.35em !important;
 }
 
-.editor-styles-wrapper ul.wp-block-list li::before {
-    content: "•";
-    margin-right: 0.75em; /* Odstęp między punktorem a tekstem */
-    font-weight: bold;
-    display: inline; /* Upewniamy się, że jest to element liniowy */
+.editor-styles-wrapper li::before {
+    content: none !important;
+}
+
+.editor-styles-wrapper li::marker {
+    color: currentColor;
+    font-size: 1em;
 }
 
 .acf-editor-wrap iframe {

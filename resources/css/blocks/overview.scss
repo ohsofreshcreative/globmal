@@ -1,11 +1,11 @@
 .b-overview {
-		p {
-			margin-bottom: 16px;
-		}
+	p {
+		margin-bottom: 16px;
+	}
 
-		p:last-child {
-			margin-bottom: 0 !important;
-		}
+	p:last-child {
+		margin-bottom: 0 !important;
+	}
 
 	ul {
 		margin-top: 8px;
@@ -34,6 +34,22 @@
 				background-size: contain;
 				background-repeat: no-repeat;
 				background-position: center;
+			}
+		}
+	}
+}
+
+.narzedzia-skrawajace {
+	.b-overview {
+		.__img {
+			min-height: 600px;
+			background-color:#FFF;
+			overflow: hidden;
+			border-radius: 16px;
+
+			img {
+				max-height: 100% !important;
+			object-fit: contain;
 			}
 		}
 	}
