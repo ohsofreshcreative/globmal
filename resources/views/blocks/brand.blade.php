@@ -52,6 +52,7 @@
 					@if (!empty($g_brand['button1']))
 					<x-button
 						:href="$g_brand['button1']['url']"
+						:target="$g_brand['button1']['target'] ?? null"
 						variant="primary"
 						class=""
 						data-gsap-element="btn">
@@ -61,6 +62,7 @@
 					@if (!empty($g_brand['button2']))
 					<x-button
 						:href="$g_brand['button2']['url']"
+						:target="$g_brand['button2']['target'] ?? null"
 						variant="white"
 						class=""
 						data-gsap-element="btn ">
