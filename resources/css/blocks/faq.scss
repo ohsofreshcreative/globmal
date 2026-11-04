@@ -28,7 +28,13 @@
 		}
 	}
 
-	.tabs-label:hover {}
+	.tabs-label {
+		transition: color 0.2s ease-out;
+	}
+
+	.tabs-label:hover {
+		color: var(--color-primary);
+	}
 
 	.tabs-content {
 		max-height: 0;
@@ -47,8 +53,9 @@
 	.tabs-content p {
 		margin: 0;
 		margin-bottom: 16px;
-		color: var(--body);
-		font-size: 14px;
+		color: var(--text-muted);
+		font-size: 16px;
+		line-height: 1.7;
 		display: inline-block;
 	}
 

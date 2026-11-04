@@ -1,0 +1,135 @@
+/* Edytor "Dashboard operacyjny" – panel WP */
+
+#gm-dashboard-items .inside { margin: 0; padding: 0 16px 16px; }
+#gm-dash .gm-dash-help { margin: 16px 0 8px; color: #50575e; }
+#gm-dash .gm-dash-help .dashicons { font-size: 16px; width: 16px; height: 16px; vertical-align: text-bottom; }
+
+.gm-dash-section {
+	margin-top: 20px;
+	border: 1px solid #dcdcde;
+	border-top: 4px solid var(--gm-color);
+	border-radius: 8px;
+	background: #fff;
+	overflow: hidden;
+}
+
+.gm-dash-section__head {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	padding: 12px 16px;
+	background: #f6f7f7;
+	border-bottom: 1px solid #dcdcde;
+}
+.gm-dash-section__head h3 { margin: 0; font-size: 15px; color: var(--gm-color); }
+.gm-dash-count {
+	display: inline-block;
+	min-width: 22px;
+	margin-left: 6px;
+	padding: 1px 8px;
+	border-radius: 999px;
+	background: var(--gm-color);
+	color: #fff;
+	font-size: 12px;
+	text-align: center;
+}
+.gm-dash-add .dashicons { font-size: 16px; width: 16px; height: 16px; vertical-align: text-bottom; }
+
+/* Siatka kolumn (nagłówek + wiersze) */
+.gm-dash-cols,
+.gm-dash-row {
+	display: grid;
+	align-items: center;
+	gap: 8px;
+	padding: 6px 12px;
+}
+[data-section="magazyn"] { --cols: 24px 170px minmax(200px, 1fr) 100px 150px 220px 32px; }
+[data-section="produkcja"] { --cols: 24px 170px minmax(200px, 1fr) 100px 130px 170px 140px 220px 32px; }
+[data-section="transport"] { --cols: 24px 170px minmax(200px, 1fr) 100px 150px 140px 220px 32px; }
+.gm-dash-cols,
+.gm-dash-list[data-section] > .gm-dash-row { grid-template-columns: var(--cols); }
+
+.gm-dash-cols {
+	padding-top: 8px;
+	padding-bottom: 4px;
+	font-size: 11px;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: .04em;
+	color: #787c82;
+}
+
+/* Pola widoczne tylko w danej sekcji */
+[data-section="magazyn"] .only-produkcja,
+[data-section="magazyn"] .only-transport,
+[data-section="magazyn"] .not-magazyn,
+[data-section="produkcja"] .only-magazyn,
+[data-section="produkcja"] .only-transport,
+[data-section="transport"] .only-magazyn,
+[data-section="transport"] .only-produkcja { display: none !important; }
+
+/* Lista */
+.gm-dash-list {
+	margin: 0;
+	padding: 4px 0 8px;
+	min-height: 56px;
+	position: relative;
+}
+.gm-dash-list:empty::after {
+	content: "Brak pozycji – przeciągnij tutaj albo kliknij „Dodaj pozycję”.";
+	display: block;
+	margin: 4px 12px;
+	padding: 16px;
+	border: 2px dashed #dcdcde;
+	border-radius: 6px;
+	text-align: center;
+	color: #a7aaad;
+}
+.gm-dash-row {
+	margin: 0;
+	border-bottom: 1px solid #f0f0f1;
+	background: #fff;
+	transition: background-color .4s;
+}
+.gm-dash-row:last-child { border-bottom: 0; }
+.gm-dash-row:hover { background: #fafafa; }
+.gm-dash-row.is-new { background: #fff8e5; }
+.gm-dash-row input[type="text"],
+.gm-dash-row input[type="number"],
+.gm-dash-row input[type="date"],
+.gm-dash-row select { width: 100%; min-width: 0; margin: 0; }
+
+.gm-dash-handle { cursor: grab; color: #a7aaad; }
+.gm-dash-handle:hover { color: #1d2327; }
+.gm-dash-progress { display: flex; align-items: center; gap: 8px; }
+.gm-dash-progress input { flex: 1; }
+.gm-dash-progress output { width: 36px; text-align: right; font-weight: 600; font-size: 12px; }
+
+.gm-dash-move { display: flex; gap: 4px; }
+.gm-dash-move .button { padding: 0 8px; min-height: 28px; line-height: 26px; font-size: 12px; }
+.gm-dash-move .button[data-to="magazyn"] { color: #059669; border-color: #059669; }
+.gm-dash-move .button[data-to="produkcja"] { color: #d97706; border-color: #d97706; }
+.gm-dash-move .button[data-to="transport"] { color: #2a54c8; border-color: #2a54c8; }
+.gm-dash-list[data-section="magazyn"] .button[data-to="magazyn"],
+.gm-dash-list[data-section="produkcja"] .button[data-to="produkcja"],
+.gm-dash-list[data-section="transport"] .button[data-to="transport"] { display: none; }
+
+.gm-dash-delete { border: 0; background: none; color: #b32d2e; cursor: pointer; padding: 0; }
+.gm-dash-delete:hover { color: #8a2424; }
+
+/* Przeciąganie */
+.gm-dash-placeholder {
+	height: 44px;
+	margin: 2px 12px;
+	border: 2px dashed var(--gm-color, #2271b1);
+	border-radius: 6px;
+	background: #f0f6fc;
+	list-style: none;
+}
+.gm-dash-row.ui-sortable-helper { box-shadow: 0 8px 24px rgba(0, 0, 0, .15); border-radius: 6px; }
+.gm-dash-list.is-drop-target { background: #f0f6fc; }
+
+/* Wąski ekran – przewijanie poziome */
+.gm-dash-section { overflow-x: auto; }
+.gm-dash-cols, .gm-dash-list { min-width: 980px; }

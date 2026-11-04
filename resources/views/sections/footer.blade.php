@@ -21,36 +21,36 @@ $footer_background = get_field('footer_background', 'option');
 					@endif
 				</div>
 				@if(!empty($contact['address']))
-				<div class="text-base text-white mb-3 _address border-b border-t border-p-lighter py-3 max-w-[280px]">
+				<div class="text-base text-white mb-3 _address border-b border-t border-white/15 py-4 max-w-[280px]">
 					{!! $contact['address'] !!}
 				</div>
 				@endif
 				@if(!empty($contact['phone']))
 				<a
 					href="tel:{{ str_replace(' ', '', $contact['phone']) }}"
-					class="text-white hover:underline __phone">
+					class="text-white/85 hover:text-white transition-colors __phone">
 					{{ $contact['phone'] }}
 				</a>
 				@endif
 				@if(!empty($contact['mail']))
 				<a
 					href="mailto:{{ $contact['mail'] }}"
-					class="text-white hover:underline __mail">
+					class="text-white/85 hover:text-white transition-colors __mail">
 					{{ $contact['mail'] }}
 				</a>
 				@endif
 				@if(!empty($socials))
-				<div class="flex items-center gap-2 mt-3">
+				<div class="flex items-center gap-3 mt-4">
 					@foreach($socials as $social)
 					<a
 						href="{{ $social['link'] }}"
 						target="_blank"
-						class="hover:opacity-80 transition-opacity">
+						class="flex items-center justify-center w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 transition-colors">
 
 						<img
 							src="{{ get_template_directory_uri() }}/resources/images/{{ $social['icon'] }}.svg"
 							alt="{{ $social['icon'] }}"
-							class="w-6 h-6">
+							class="w-5 h-5">
 					</a>
 					@endforeach
 				</div>
@@ -64,8 +64,8 @@ $footer_background = get_field('footer_background', 'option');
 		@endif
 		@endfor
 	</div>
-	<div class="footer-bottom border-t border-p-lighter w-full ">
-		<div class="flex flex-col md:flex-row justify-between items-center gap-6 py-10">
+	<div class="footer-bottom border-t border-white/10 w-full ">
+		<div class="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-6 py-8 text-sm text-white/60 text-center md:text-left">
 			<p>
 				Copyright ©{{ date('Y') }}
 				{{ get_bloginfo('name') }}.

@@ -1519,9 +1519,19 @@
           "color": "rgb(var(--s-300))"
         },
         {
+          "name": "Secondary (400)",
+          "slug": "secondary-400",
+          "color": "rgb(var(--s-400))"
+        },
+        {
           "name": "Secondary (500)",
           "slug": "secondary-500",
           "color": "rgb(var(--s-500))"
+        },
+        {
+          "name": "Secondary (600)",
+          "slug": "secondary-600",
+          "color": "rgb(var(--s-600))"
         },
         {
           "name": "Third",
@@ -1529,9 +1539,19 @@
           "color": "rgb(var(--third))"
         },
         {
+          "name": "Third (100)",
+          "slug": "third-100",
+          "color": "rgb(var(--t-100))"
+        },
+        {
           "name": "Action",
           "slug": "action",
           "color": "var(--action)"
+        },
+        {
+          "name": "Page",
+          "slug": "page",
+          "color": "var(--bg)"
         },
         {
           "name": "Background (Brand)",
