@@ -1584,11 +1584,6 @@
           "color": "#002238"
         },
         {
-          "name": "P (Lighter)",
-          "slug": "p-lighter",
-          "color": "rgba(var(--p-lighter))"
-        },
-        {
           "name": "Soft",
           "slug": "soft",
           "color": "rgb(var(--soft))"

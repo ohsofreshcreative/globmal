@@ -34,7 +34,25 @@
 	font-size: 12px;
 	text-align: center;
 }
-.gm-dash-add .dashicons { font-size: 16px; width: 16px; height: 16px; vertical-align: text-bottom; }
+#gm-dash .gm-dash-add {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	padding: 4px 14px 4px 10px;
+	background: var(--gm-color);
+	border-color: var(--gm-color);
+	color: #fff;
+	font-weight: 600;
+	line-height: 1;
+}
+#gm-dash .gm-dash-add:hover,
+#gm-dash .gm-dash-add:focus {
+	background: var(--gm-color);
+	border-color: var(--gm-color);
+	color: #fff;
+	filter: brightness(0.9);
+}
+#gm-dash .gm-dash-add .dashicons { font-size: 18px; width: 18px; height: 18px; line-height: 1; }
 
 /* Siatka kolumn (nagłówek + wiersze) */
 .gm-dash-cols,
