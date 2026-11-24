@@ -5,6 +5,9 @@ use App\Walkers\MobileDropdownWalker;
 
 <header x-data="{ mobileOpen: false }" class="z-50 masthead fixed-top bg-transparent text-white bg-transparent rounded-[40px] border border-white/20 shadow-lg mt-2 mx-4">
 
+	{{-- Szklany efekt WebGL (resources/js/header-glass.js) --}}
+	<canvas class="masthead__glass" aria-hidden="true"></canvas>
+
 	<!-- Desktop Header -->
 	<div class="items-center justify-between hidden px-12  xl:flex ">
 		<a class="brand shrink-0" href="{{ home_url('/') }}">
@@ -20,6 +23,7 @@ use App\Walkers\MobileDropdownWalker;
 		<nav class="ml-6 lg:ml-15 nav-primary w-full" aria-label="{{ wp_get_nav_menu_name('primary_navigation') }}">
 			{!! wp_nav_menu([
 			'theme_location' => 'primary_navigation',
+			'menu_id' => 'menu-menu', // stałe ID — style w variables.scss celują w #menu-menu, a ID z nazwy menu różni się per język
 			'menu_class' => 'nav flex gap-x-3 lg:gap-x-6 text-lg font-medium justify-center items-center',
 			'container' => false,
 			'echo' => false,

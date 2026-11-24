@@ -15,7 +15,7 @@
 
 	@if (!empty($g_hero['video']))
 	<div class="absolute inset-0 overflow-hidden z-0 pointer-events-none">
-		<video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover">
+		<video data-glass-source autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover">
 			<source src="{{ $g_hero['video'] }}" type="video/mp4">
 			Twoja przeglądarka nie obsługuje odtwarzania wideo.
 		</video>

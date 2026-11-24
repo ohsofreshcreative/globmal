@@ -7,6 +7,15 @@ use Walker_Nav_Menu;
 class DropdownWalker extends Walker_Nav_Menu
 {
     /**
+     * Tytuł pozycji menu. Przełącznik języka Polylanga (klasa "lang-item") ma w tytule
+     * własny HTML z flagą — wypuszczamy go bez escapowania. Reszta jak dotąd: esc_html.
+     */
+    public static function itemTitle($item)
+    {
+        return in_array('lang-item', (array) $item->classes, true) ? $item->title : esc_html($item->title);
+    }
+
+    /**
      * Starts the list before the elements are added.
      */
     public function start_lvl(&$output, $depth = 0, $args = null)
@@ -33,7 +42,7 @@ class DropdownWalker extends Walker_Nav_Menu
             // Zamiast <button> używamy <a> z linkiem do strony nadrzędnej.
             // Usunęliśmy `@click`, aby kliknięcie powodowało standardową nawigację.
             $output .= '<a href="' . esc_attr($item->url) . '" class="inline-flex items-center gap-x-1 text-sm text-white font-medium hover:text-indigo-600">';
-            $output .= esc_html($item->title);
+            $output .= self::itemTitle($item);
             $output .= '<svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" /></svg>';
             $output .= '</a>';
             // ### KONIEC ZMIANY ###
@@ -51,7 +60,7 @@ class DropdownWalker extends Walker_Nav_Menu
             }
 
             $output .= '<a href="' . esc_attr($item->url) . '" class="' . esc_attr($link_classes) . '">';
-            $output .= esc_html($item->title);
+            $output .= self::itemTitle($item);
             $output .= '</a>';
         }
     }

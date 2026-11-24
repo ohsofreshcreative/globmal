@@ -818,6 +818,29 @@ h6,
 	transition: all 0.3s !important;
 }
 
+/* Szkło górnego menu: CSS matuje tło, WebGL (header-glass.js) dokłada załamanie wideo z hero i połysk. */
+.masthead {
+	-webkit-backdrop-filter: blur(10px) saturate(140%);
+	backdrop-filter: blur(10px) saturate(140%);
+}
+
+.masthead__glass {
+	display: none;
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	border-radius: inherit;
+	z-index: -1;
+	pointer-events: none;
+}
+
+@media (min-width: 1280px) {
+	.masthead__glass {
+		display: block;
+	}
+}
+
 .fixed-top.scrollDown {
 	box-shadow: 0 10px 30px -12px rgba(7, 22, 34, 0.5);
 	background: rgba(0, 51, 84, 0.88);

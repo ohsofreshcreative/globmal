@@ -69,3 +69,22 @@ add_filter('gettext', function ($translated, $text, $domain) {
 add_filter('acf/blocks/default_expanded_editor_button_text', function () {
     return 'Edytuj sekcję';
 });
+
+/**
+ * Polylang — tłumaczenie CPT "offers" i taksonomii "offer_category".
+ *
+ * Włączone w kodzie zamiast w Języki → Ustawienia, żeby przechodziło z deployem.
+ * Drugi argument ($is_settings) = true na ekranie ustawień: wtedy też dodajemy,
+ * żeby checkbox był zaznaczony i nie dało się go przypadkiem wyłączyć.
+ */
+add_filter('pll_get_post_types', function ($post_types, $is_settings) {
+    $post_types['offers'] = 'offers';
+
+    return $post_types;
+}, 10, 2);
+
+add_filter('pll_get_taxonomies', function ($taxonomies, $is_settings) {
+    $taxonomies['offer_category'] = 'offer_category';
+
+    return $taxonomies;
+}, 10, 2);
