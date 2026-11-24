@@ -16,7 +16,7 @@ class Oreviews extends Options
 
 	public function fields(): FieldsBuilder
 	{
-		$oreviews = new FieldsBuilder('oreviews');
+		$oreviews = new FieldsBuilder($this->slug);
 
 		$oreviews
 			->addText('header', ['label' => 'Nagłówek'])

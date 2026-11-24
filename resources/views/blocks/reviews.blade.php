@@ -1,3 +1,6 @@
+@if (!empty($block->preview))
+@include('blocks.previews.preview-reviews')
+@else
 <!--- reviews -->
 
 <section
@@ -90,3 +93,4 @@
 		</div>
 	</div>
 </section>
+@endif

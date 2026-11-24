@@ -1,3 +1,6 @@
+@if (!empty($block->preview))
+@include('blocks.previews.preview-products')
+@else
 @php
 // --- Budowanie klas sekcji ---
 $sectionClass = '';
@@ -121,3 +124,5 @@ $is_admin = is_admin();
 		@endif -->
 	</div>
 </section>
+
+@endif

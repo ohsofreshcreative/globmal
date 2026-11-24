@@ -1,3 +1,6 @@
+@if (!empty($block->preview))
+@include('blocks.previews.preview-faq')
+@else
 <!--- faq --->
 
 <section
@@ -55,3 +58,4 @@
 		</div>
 	</div>
 </section>
+@endif

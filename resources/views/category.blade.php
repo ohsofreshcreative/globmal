@@ -10,7 +10,7 @@ $category_header = get_field('category_header', $term);
 $category_description = get_field('category_description', $term);
 $category_image = get_field('category_image', $term);
 
-$g_octa = get_field('g_octa', 'option');
+$g_octa = \App\option_field('g_octa');
 
 
 // Wygenerowanie unikalnego ID dla SVG

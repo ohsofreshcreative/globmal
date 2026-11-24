@@ -1,3 +1,6 @@
+@if (!empty($block->preview))
+@include('blocks.previews.preview-proces')
+@else
 <!--- proces --->
 
 <section
@@ -42,3 +45,5 @@
 	</div>
 
 </section>
+
+@endif

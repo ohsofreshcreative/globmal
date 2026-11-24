@@ -98,7 +98,7 @@ class Cta extends Block
 	public function with(): array
 	{
 		$fields = [
-			'g_octa' => get_field('g_octa', 'option'),
+			'g_octa' => \App\option_field('g_octa', $this->post_id),
 			'form' => (bool) get_field('form'),
 
 			'section_id' => get_field('section_id'),

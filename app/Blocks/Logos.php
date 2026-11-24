@@ -84,7 +84,7 @@ class Logos extends Block
     public function with(): array
     {
         $fields = [
-            'g_logos' => get_field('g_logos', 'option'),  // <-- z Options page
+            'g_logos' => \App\option_field('g_logos', $this->post_id),  // <-- z Options page
 
             'section_id' => get_field('section_id'),
             'section_class' => get_field('section_class'),

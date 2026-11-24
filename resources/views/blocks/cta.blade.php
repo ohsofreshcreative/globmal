@@ -1,3 +1,6 @@
+@if (!empty($block->preview))
+@include('blocks.previews.preview-cta')
+@else
 <!--- cta -->
 
 <section
@@ -45,3 +48,4 @@
 		</div>
 	</div>
 </section>
+@endif

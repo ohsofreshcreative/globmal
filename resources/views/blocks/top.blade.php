@@ -1,3 +1,6 @@
+@if (!empty($block->preview))
+@include('blocks.previews.preview-top')
+@else
 @php
 $sectionClass = '';
 $sectionClass .= $nomt ? ' !mt-0' : '';
@@ -53,3 +56,4 @@ $sectionClass .= $nomt ? ' !mt-0' : '';
 		<img class="absolute pointer-events-none w-240 h-auto z-20 top-0 -right-50" src="/wp-content/uploads/2026/07/shape.svg" />
 	</div>
 </section>
+@endif

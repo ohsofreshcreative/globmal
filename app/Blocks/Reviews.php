@@ -77,8 +77,8 @@ class Reviews extends Block
 	public function with(): array
 	{
 		$fields = [
-			'header'    => get_field('header', 'option'),
-			'r_reviews' => get_field('r_reviews', 'option') ?: [],
+			'header'    => \App\option_field('header', $this->post_id),
+			'r_reviews' => \App\option_field('r_reviews', $this->post_id) ?: [],
 
 			'section_id' => get_field('section_id'),
 			'section_class' => get_field('section_class'),

@@ -1,3 +1,6 @@
+@if (!empty($block->preview))
+@include('blocks.previews.preview-map')
+@else
 <!-- map  -->
 <section
 	data-gsap-anim="section"
@@ -27,3 +30,4 @@
 		</div>
 	</div>
 </section>
+@endif

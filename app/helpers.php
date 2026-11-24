@@ -64,3 +64,41 @@ function get_pdf_thumbnail_url($pdf_attachment_id)
 }
 
 
+
+
+/**
+ * Pole ze strony opcji w języku bieżącej strony (Polylang).
+ *
+ * Język domyślny czyta z 'option', pozostałe z 'options_{lang}'
+ * (podstrony "Wersja EN" w app/Options/*En.php). Gdy tłumaczenie jest puste,
+ * wraca do wersji domyślnej, żeby sekcja nie zniknęła.
+ *
+ * @param string $name Nazwa pola.
+ * @param int|string|null $post_id Wpis, z którego brać język (np. w podglądzie bloku w edytorze).
+ * @return mixed
+ */
+function option_field(string $name, $post_id = null)
+{
+    $lang = null;
+
+    if (function_exists('pll_get_post_language') && !empty($post_id) && is_numeric($post_id)) {
+        $lang = pll_get_post_language((int) $post_id);
+    }
+
+    if (!$lang && function_exists('pll_current_language')) {
+        $lang = pll_current_language();
+    }
+
+    $default = function_exists('pll_default_language') ? pll_default_language() : null;
+
+    if ($lang && $default && $lang !== $default) {
+        $value = get_field($name, 'options_' . $lang);
+        $filled = is_array($value) ? !empty(array_filter($value, fn ($v) => !empty($v))) : !empty($value);
+
+        if ($filled) {
+            return $value;
+        }
+    }
+
+    return get_field($name, 'option');
+}

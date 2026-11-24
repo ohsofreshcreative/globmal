@@ -1,3 +1,6 @@
+@if (!empty($block->preview))
+@include('blocks.previews.preview-video')
+@else
 <!--- video -->
 
 <section
@@ -52,3 +55,4 @@
 });
 
 </script>
+@endif

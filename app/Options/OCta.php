@@ -16,7 +16,7 @@ class Octa extends Options
 
 	public function fields(): FieldsBuilder
 	{
-		$octa = new FieldsBuilder('octa');
+		$octa = new FieldsBuilder($this->slug);
 
 		$octa
 			->addGroup('g_octa', ['label' => ''])

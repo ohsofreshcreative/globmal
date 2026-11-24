@@ -1,7 +1,7 @@
 @php
 $categories = get_the_category();
 $category = !empty($categories) ? $categories[0] : null;
-$g_octa = get_field('g_octa', 'option');
+$g_octa = \App\option_field('g_octa');
 @endphp
 
 <section data-gsap-anim="section" class="hero-blog relative bg-blue-light overflow-hidden">

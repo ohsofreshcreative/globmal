@@ -1,3 +1,6 @@
+@if (!empty($block->preview))
+@include('blocks.previews.preview-hero')
+@else
 <!-- hero --->
 
 <section
@@ -57,3 +60,4 @@
     style="background: linear-gradient(0deg, #003354 0%, rgba(0, 51, 84, 0.00) 100%);">
 </div> -->
 </section>
+@endif

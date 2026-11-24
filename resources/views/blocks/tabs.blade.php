@@ -1,3 +1,6 @@
+@if (!empty($block->preview))
+@include('blocks.previews.preview-tabs')
+@else
 @php
 // --- Budowanie klas sekcji ---
 $sectionClass = '';
@@ -98,3 +101,4 @@ $grouped_tabs[$tabName][] = $item;
 
 				<img class="absolute z-0 hidden xl:block pointer-events-none w-220 xl:w-280 h-auto  -top-42 -right-210 " src="/wp-content/uploads/2026/07/circle-mask.svg" />
 </section>
+@endif

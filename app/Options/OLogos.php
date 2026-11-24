@@ -16,7 +16,7 @@ class OLogos extends Options
 
     public function fields(): FieldsBuilder
     {
-        $logos = new FieldsBuilder('ologos');
+        $logos = new FieldsBuilder($this->slug);
 
         $logos
             ->addGroup('g_logos', ['label' => ''])

@@ -1,3 +1,6 @@
+@if (!empty($block->preview))
+@include('blocks.previews.preview-teaser')
+@else
 @php
 $sectionClass = '';
 $sectionClass .= $nomt ? ' !mt-0' : '';
@@ -41,3 +44,4 @@ background:
 		</div>
 	</div>
 </section>
+@endif

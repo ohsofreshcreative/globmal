@@ -1,3 +1,6 @@
+@if (!empty($block->preview))
+@include('blocks.previews.preview-values')
+@else
 <!--- values -->
 
 <section
@@ -47,3 +50,5 @@
 		</div>
 	</div>
 </section>
+
+@endif

@@ -1,3 +1,6 @@
+@if (!empty($block->preview))
+@include('blocks.previews.preview-accordion')
+@else
 <!-- accordion -->
 
 <section
@@ -82,3 +85,4 @@
 		</div>
 	</div>
 </section>
+@endif

@@ -1,3 +1,6 @@
+@if (!empty($block->preview))
+@include('blocks.previews.preview-offer')
+@else
 <!-- offer -->
 <section
 	data-gsap-anim="section"
@@ -79,3 +82,4 @@
 	</div>
 
 </section>
+@endif

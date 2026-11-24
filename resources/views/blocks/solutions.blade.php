@@ -1,3 +1,6 @@
+@if (!empty($block->preview))
+@include('blocks.previews.preview-solutions')
+@else
 <!--- solutions --->
 
 <section
@@ -54,3 +57,4 @@
 		@endif
 	</div>
 </section>
+@endif

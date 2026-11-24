@@ -1,3 +1,6 @@
+@if (!empty($block->preview))
+@include('blocks.previews.preview-overview')
+@else
 <!--- overview -->
 
 <section
@@ -84,3 +87,4 @@
 		<!-- repeater end -->
 	</div>
 </section>
+@endif

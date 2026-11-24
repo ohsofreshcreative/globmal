@@ -1,3 +1,6 @@
+@if (!empty($block->preview))
+@include('blocks.previews.preview-contact')
+@else
 <!--- contact --->
 @php
 $sectionClass = '';
@@ -44,3 +47,4 @@ $sectionClass .= $nomt ? ' !mt-0' : '';
 		</div>
 	</div>
 </section>
+@endif

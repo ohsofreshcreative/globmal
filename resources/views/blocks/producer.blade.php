@@ -1,3 +1,6 @@
+@if (!empty($block->preview))
+@include('blocks.previews.preview-producer')
+@else
 <!--- producer -->
 
 <section
@@ -47,3 +50,4 @@
 	</div>
 	
 </section>
+@endif

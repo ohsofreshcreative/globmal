@@ -1,3 +1,6 @@
+@if (!empty($block->preview))
+@include('blocks.previews.preview-posts')
+@else
 @php
 $sectionClass = '';
 $sectionClass .= $flip ? ' order-flip' : '';
@@ -66,3 +69,4 @@ $sectionClass .= $brandbg ? ' section-brand' : '';
 </div>
 	</div>
 </div>
+@endif

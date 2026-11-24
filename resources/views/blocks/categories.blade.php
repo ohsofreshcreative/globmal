@@ -1,3 +1,6 @@
+@if (!empty($block->preview))
+@include('blocks.previews.preview-categories')
+@else
 <!--- categories --->
 
 <section
@@ -62,3 +65,4 @@
 	</div>
 
 </section>
+@endif

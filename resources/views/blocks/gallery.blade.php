@@ -1,3 +1,6 @@
+@if (!empty($block->preview))
+@include('blocks.previews.preview-gallery')
+@else
 @php
 $sectionClass = '';
 $sectionClass .= $flip ? ' order-flip' : '';
@@ -30,3 +33,4 @@ $sectionClass .= ' ' . $background;
 
 	</div>
 </section>
+@endif

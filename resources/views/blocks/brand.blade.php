@@ -1,3 +1,6 @@
+@if (!empty($block->preview))
+@include('blocks.previews.preview-brand')
+@else
 <!--- brand -->
 
 <section
@@ -75,3 +78,4 @@
 	</div>
 <div class="absolute blur"></div>
 </section>
+@endif
