@@ -54,7 +54,7 @@
                 </h3>
 
                 <span class="btn btn-primary">
-                    Sprawdź szczegóły
+                    {{ (function_exists('pll_current_language') && pll_current_language() === 'en') ? 'See details' : 'Sprawdź szczegóły' }}
                 </span>
             </div>
         </a>

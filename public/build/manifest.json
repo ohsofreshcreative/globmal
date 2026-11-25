@@ -1,10 +1,6 @@
 {
-  "_pagination-D8gyGEei.css": {
-    "file": "assets/pagination-D8gyGEei.css",
-    "src": "_pagination-D8gyGEei.css"
-  },
-  "_pagination-DQ_TnQeD.js": {
-    "file": "assets/pagination-DQ_TnQeD.js",
+  "_pagination-CuRtvq5v.js": {
+    "file": "assets/pagination-CuRtvq5v.js",
     "name": "pagination",
     "imports": [
       "resources/js/app.js"
@@ -12,6 +8,10 @@
     "css": [
       "assets/pagination-D8gyGEei.css"
     ]
+  },
+  "_pagination-D8gyGEei.css": {
+    "file": "assets/pagination-D8gyGEei.css",
+    "src": "_pagination-D8gyGEei.css"
   },
   "editor.deps.json": {
     "file": "assets/editor.deps-DxpY22xl.json",
@@ -46,7 +46,7 @@
     "src": "resources/images/pointer.svg"
   },
   "resources/js/app.js": {
-    "file": "assets/app-B7DeiOjO.js",
+    "file": "assets/app-DmuRKc2g.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
@@ -75,7 +75,7 @@
     "isDynamicEntry": true
   },
   "resources/js/blocks/products.js": {
-    "file": "assets/products-Z4ghZOH2.js",
+    "file": "assets/products-CsXq3BKD.js",
     "name": "products",
     "src": "resources/js/blocks/products.js",
     "isDynamicEntry": true,
@@ -84,27 +84,27 @@
     ]
   },
   "resources/js/blocks/reviews.js": {
-    "file": "assets/reviews-c7S9QiVI.js",
+    "file": "assets/reviews-CHE17Co2.js",
     "name": "reviews",
     "src": "resources/js/blocks/reviews.js",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_pagination-DQ_TnQeD.js"
+      "_pagination-CuRtvq5v.js"
     ]
   },
   "resources/js/blocks/slider.js": {
-    "file": "assets/slider-CdBBVuup.js",
+    "file": "assets/slider-X3MRW68c.js",
     "name": "slider",
     "src": "resources/js/blocks/slider.js",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_pagination-DQ_TnQeD.js"
+      "_pagination-CuRtvq5v.js"
     ]
   },
   "resources/js/blocks/tabs.js": {
-    "file": "assets/tabs-5vtMuENZ.js",
+    "file": "assets/tabs-CRqH6_g0.js",
     "name": "tabs",
     "src": "resources/js/blocks/tabs.js",
     "isDynamicEntry": true,

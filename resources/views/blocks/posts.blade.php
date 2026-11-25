@@ -51,7 +51,7 @@ $sectionClass .= $brandbg ? ' section-brand' : '';
                     <h6 class="mt-4">
                         {{ get_the_title($post->ID) }}
                     </h6>
-				<p class="mt-4 text-primary items-center gap-2 flex">Przeczytaj artykuł 
+				<p class="mt-4 text-primary items-center gap-2 flex">{{ (function_exists('pll_current_language') && pll_current_language() === 'en') ? 'Read Article' : 'Przeczytaj artykuł' }} 
 				<span>
 				<svg xmlns="http://www.w3.org/2000/svg" width="13" height="12" viewBox="0 0 13 12" fill="none">
   <path d="M12.7296 5.31498C12.7293 5.31469 12.7291 5.31435 12.7287 5.31406L7.91118 0.281803C7.55027 -0.0951806 6.96652 -0.0937777 6.60727 0.285093C6.24806 0.663916 6.24944 1.27664 6.61036 1.65367L9.84486 5.03226H0.921985C0.412773 5.03226 0 5.46552 0 6C0 6.53448 0.412773 6.96774 0.921985 6.96774H9.84482L6.6104 10.3463C6.24949 10.7234 6.24811 11.3361 6.60731 11.7149C6.96656 12.0938 7.55037 12.0951 7.91123 11.7182L12.7288 6.68594C12.7291 6.68565 12.7293 6.68531 12.7296 6.68502C13.0907 6.30673 13.0896 5.69202 12.7296 5.31498Z" fill="#57606C"/>

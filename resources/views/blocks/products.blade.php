@@ -48,7 +48,7 @@ $is_admin = is_admin();
 							@click="activeTab = 'all'"
 							:class="{ 'bg-third text-white': activeTab === 'all', 'bg-white shadow-md text-black hover:bg-gray-100': activeTab !== 'all' }"
 							class=" font-semibold whitespace-nowrap py-3 px-6  flex justify-center items-center radius transition-colors duration-200 focus:outline-none cursor-pointer">
-							Wszystkie
+							{{ (function_exists('pll_current_language') && pll_current_language() === 'en') ? 'All' : 'Wszystkie' }}
 						</button>
 					</div>
 
@@ -102,7 +102,7 @@ $is_admin = is_admin();
 						@endif
 						<div class="mt-8 ">
 							<p class="text-base text-primary flex items-center gap-2">
-								<span>Zapytaj o produkt</span>
+								<span>{{ (function_exists('pll_current_language') && pll_current_language() === 'en') ? 'Product Inquiry' : 'Zapytaj o produkt' }}</span>
 								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
 									<path d="M5 12h14M12 5l7 7-7 7" />
 								</svg>

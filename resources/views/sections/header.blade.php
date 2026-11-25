@@ -1,6 +1,13 @@
 @php
 use App\Walkers\DropdownWalker;
 use App\Walkers\MobileDropdownWalker;
+
+// Przycisk kontaktu w menu — tekst i link wg języka (Polylang).
+$isEn = function_exists('pll_current_language') && pll_current_language() === 'en';
+$contactPage = get_page_by_path($isEn ? 'contact' : 'kontakt');
+$contactUrl = $contactPage ? get_permalink($contactPage) : ($isEn ? '/en/contact/' : '/kontakt/');
+$contactLabel = $isEn ? 'Contact' : 'Kontakt';
+$openMenuLabel = $isEn ? 'Open main menu' : 'Otwórz menu główne';
 @endphp
 
 <header x-data="{ mobileOpen: false }" class="z-50 masthead fixed-top bg-transparent text-white bg-transparent rounded-[40px] border border-white/20 shadow-lg mt-2 mx-4">
@@ -34,8 +41,8 @@ use App\Walkers\MobileDropdownWalker;
 
 
 		<div class="">
-			<a href="/kontakt/" class="block w-full btn btn-primary">
-				Kontakt
+			<a href="{{ $contactUrl }}" class="block w-full btn btn-primary">
+				{{ $contactLabel }}
 			</a>
 		</div>
 	</div>
@@ -56,7 +63,7 @@ use App\Walkers\MobileDropdownWalker;
 			class="p-2 primary bg-transparent rounded-md"
 			aria-expanded="mobileOpen"
 			aria-controls="mobile-menu-panel">
-			<span class="sr-only">Otwórz menu główne</span>
+			<span class="sr-only">{{ $openMenuLabel }}</span>
 			<svg x-show="!mobileOpen" class="block w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
 				<path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
 			</svg>
@@ -116,9 +123,9 @@ use App\Walkers\MobileDropdownWalker;
 			@endif
 
 			<div class="mt-8">
-				<a href="/kontakt/" class="block w-full btn btn-primary">
-					Kontakt
-				</a>
+				<a href="{{ $contactUrl }}" class="block w-full btn btn-primary">
+				{{ $contactLabel }}
+			</a>
 			</div>
 		</div>
 

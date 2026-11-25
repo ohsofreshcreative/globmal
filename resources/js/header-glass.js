@@ -10,10 +10,6 @@
  * Bez WebGL canvas zostaje pusty — menu wygląda jak dotąd.
  */
 
-const canvas = document.querySelector('.masthead__glass');
-
-if (canvas) init(canvas);
-
 function init(canvas) {
 	const gl = canvas.getContext('webgl', { alpha: true, premultipliedAlpha: false, antialias: false });
 	if (!gl) return;
@@ -241,3 +237,7 @@ function createShader(gl, type, source) {
 	}
 	return shader;
 }
+
+// Start na końcu pliku — VERTEX/FRAGMENT (const) muszą być już zainicjalizowane.
+const canvas = document.querySelector('.masthead__glass');
+if (canvas) init(canvas);
